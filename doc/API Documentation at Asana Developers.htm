@@ -1,0 +1,2856 @@
+<!DOCTYPE html>
+<html class="wf-proximanova-n7-active wf-proximanovacondensed-n4-active wf-proximanovacondensed-n6-active wf-proximanovacondensed-n7-active wf-proximanova-n4-active wf-proximanova-n6-active wf-proximanova-n8-active wf-proximanovacondensed-n8-active wf-active" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" dir="ltr" lang="en-US"><head profile="http://gmpg.org/xfn/11">
+    <title>   API Documentation at Asana Developers</title>
+      <meta property="og:title" content="Asana: the Modern Approach to Working Together">
+      <meta property="og:type" content="product">
+      <meta property="og:image" content="http://beta.asana.com/-/static/apps/asana_mobile/media/icon.png">
+      <meta property="og:site_name" content="Asana">
+      <meta property="fb:admins" content="500011067">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="description" content="Asana: the Modern Approach to Working Together">
+      <meta name="generator" content="WordPress 3.3.2"> <!-- leave this for stats please -->
+      <script type="text/javascript" src="API%20Documentation%20at%20Asana%20Developers_files/wxq2kqe.js"></script><style type="text/css">.tk-proxima-nova,body{font-family:"proxima-nova",sans-serif;}.tk-proxima-nova-condensed{font-family:"proxima-nova-condensed",sans-serif;}</style><link href="API%20Documentation%20at%20Asana%20Developers_files/wxq2kqe-d.css" rel="stylesheet"><script>__FILE__="(none)";try{Typekit.load();}catch(e){}</script>
+      <link href="API%20Documentation%20at%20Asana%20Developers_files/reset.css" rel="stylesheet" type="text/css" media="screen">
+      <link href="API%20Documentation%20at%20Asana%20Developers_files/uielements.css" rel="stylesheet" type="text/css" media="screen">
+      <link href="API%20Documentation%20at%20Asana%20Developers_files/style.css" rel="stylesheet" type="text/css" media="screen">
+      <link rel="alternate" type="application/rss+xml" title="Asana Developers RSS Feed" href="http://developer.asana.com/feed/">
+      <link rel="shortcut icon" type="image/x-png" href="http://developer.asana.com/wp-content/themes/asana/favicon.ico">
+      <link rel="pingback" href="http://developer.asana.com/xmlrpc.php">
+      <link rel="alternate" type="application/rss+xml" title="Asana Developers » API Documentation Comments Feed" href="http://developer.asana.com/documentation/feed/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://developer.asana.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://developer.asana.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Developer Home" href="http://developer.asana.com/">
+<link rel="canonical" href="http://developer.asana.com/documentation/">
+      <script src="API%20Documentation%20at%20Asana%20Developers_files/jquery-1.js"></script>
+      <script src="API%20Documentation%20at%20Asana%20Developers_files/jquery-ui.js"></script><style type="text/css">.tk-proxima-nova,body{font-family:"proxima-nova",sans-serif;}.tk-proxima-nova-condensed{font-family:"proxima-nova-condensed",sans-serif;}</style><link href="API%20Documentation%20at%20Asana%20Developers_files/sli4yxq-d.css" rel="stylesheet">
+      </head>
+
+      <!-- end asana.com common header -->
+
+      <body>
+		<div id="bg-pattern" class="bg-pattern">
+			<script>
+			if (navigator.userAgent.indexOf('WebKit') > 0) {
+			    document.getElementById("bg-pattern").className += ' webkit';
+			  }
+			</script>
+		</div>
+        <div id="bg-wrap">
+          <div id="page-wrap-wide">
+			<header>
+              <div id="header">
+                <a href="http://www.asana.com/"><img src="API%20Documentation%20at%20Asana%20Developers_files/logo.png" alt="asana" class="logo"></a>
+				<a href="http://developer.asana.com/"><span class="logotext">Developers</span></a>
+                <ul class="horizontal headerbutton">
+                  <li><a class="button-alternative" href="http://app.asana.com/" title="Log In"> Log In » </a></li>
+                  <li><a class="button" href="http://www.asana.com/signup" title="Sign Up - It's Free!"> Sign Up » </a></li>
+                </ul>
+              </div>
+            </header>
+      <div id="container-wide" class="group"><script>
+	document.getElementById("page-wrap").id = 'page-wrap-wide';
+	document.getElementById("container").id = 'container-wide';
+</script>
+<div id="title" class="cf">
+	<h1>Asana API Documentation</h1>
+   	<a href="http://developer.asana.com/"><span style="margin-left:10px;">Back to Developer Home »</span></a>
+</div>
+
+
+
+
+  <title>Asana API Documentation</title>
+    <script type="text/javascript" src="API%20Documentation%20at%20Asana%20Developers_files/sli4yxq.js"></script>
+  <script type="text/javascript">
+    try{Typekit.load();}catch(e){}
+  </script>
+
+  <style type="text/css">
+    body,div,td {
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+      font-family: proxima-nova, "Helvetica Neue", Arial, sans-serif;
+      color: #212F40;
+    }
+
+    ol, ul {
+      list-style: disc;
+      -webkit-padding-start: 32px;
+    }
+
+    a {
+      color: #1F8DD6;
+      text-decoration: none;
+    }
+    a:active { color: #E5F1FF; }
+    a:visited { color: #1F8DD6; }
+
+    .content {
+      margin-left: 572px;
+      padding: 20px 16px;
+      border-left: 1px solid #C0CCD7;
+      background-color: #DDE4EA;
+    }
+    .title {
+      width: 540px;
+      margin-left: -572px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #596573;
+    }
+    p {
+      margin: 1em 0;
+    }
+    p:first-child {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul.toc {
+      -webkit-padding-start: 0;
+    }
+    ul.toc > li {
+      list-style: none;
+    }
+    
+    .section {
+      clear: left;
+      margin-left: -572px;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+      padding: 16px 0 0 0;
+      margin: 0;
+      font-family:'Proxima Nova Condensed',proxima-nova,"Helvetica Neue", Arial, sans-serif;
+    }
+
+    h3 {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 16px 0 0 0;
+      margin: 0;
+      color: #596573;
+    }
+
+    .description {
+      float: left;
+      font-size: 14px;
+      padding: 8px 16px 0 0;
+      width: 540px;
+    }
+    .example {
+      padding: 8px 16px 24px 16px;
+      min-width: 380px;
+      margin-left: 556px;
+    }
+
+    /* object properties table */
+    table.properties td {
+      vertical-align: top;
+    }
+    tr.property-row-1 td {
+    }
+    td.property-name {
+      width: 112px;
+      min-width: 112px;
+      padding: 8px 6px 0px 0px;
+      text-align: right;
+      font-weight: bold;
+    }
+    td.property-example-value {
+      /* font baseline is naturally higher: lower it */
+      padding: 9px 8px 0px 6px;
+      font-family: "Courier New", Courier, fixed;
+      white-space: nowrap;
+    }
+    td.property-example-value .note {
+      font-family: proxima-nova, "Helvetica Neue", Arial, sans-serif;
+      font-style: italic;
+    }
+    td.property-description {
+      padding: 0px 8px 10px 6px;
+    }
+
+    /* object property values sub-table */
+    table.property-value-list {
+      border-spacing: 0;
+      margin-left: 0px;
+      padding: 4px 0 4px 0;
+    }
+    td.property-value-list-value {
+      font-family: "Courier New", Courier, fixed;
+      padding: 0 8px 0 0;
+    }
+    td.property-value-list-description {
+      padding: 0 0 0 0;
+    }
+
+    /* value descriptions table */
+    table.values td {
+      vertical-align: top;
+    }
+    td.value-name {
+      width: 72px;
+      min-width: 72px;
+      padding: 8px 6px 0px 0px;
+      text-align: right;
+      font-weight: bold;
+    }
+    td.value-description {
+      padding: 8px 8px 10px 6px;
+    }
+
+    /* annotated code table */
+    tr.annotated-code-header td {
+      padding: 8px 16px 0px 0px;
+      font-weight: bold;
+    }
+    tr.annotated-code-header td:nth-child(2) {
+      padding-left: 32px;
+    }
+    td.annotated-code-comment {
+      padding: 0 16px 0 32px;
+    }
+
+    .example-title {
+      color: #596573;
+      padding-bottom: 16px;
+      font-weight: 600;
+    }
+    code {
+      font-family: "Courier New", Courier, fixed;
+      white-space: pre-wrap;
+      color: #333;
+    }
+    .code-emphasized { font-weight: bold; color: #666; }
+    .code-comment { color: #666; }
+    .code-placeholder { font-style: italic; }
+  </style>
+
+
+
+
+<div class="content">
+  <div class="section">
+    <h2>Table of Contents</h2>
+    <div class="description">
+      <ul class="toc">
+        <li><a class="topic-link" href="#Overview">Overview</a></li>
+        <li><a class="topic-link" href="#UseCases">Use Cases</a></li>
+        <li><a class="topic-link" href="#HelloWorld">Hello World</a></li>
+        <li><a class="topic-link" href="#ExampleApplications">Example Applications</a></li>
+        <li><a class="topic-link" href="#Authentication">Authentication</a></li>
+        <li><a class="topic-link" href="#Errors">Errors</a></li>
+        <li><a class="topic-link" href="#Options">Input/Output Options</a></li>
+        <li><a class="topic-link" href="#Reference">Reference</a>
+          <ul>
+            <li><a class="topic-link" href="#users">Users</a></li>
+            <li><a class="topic-link" href="#tasks">Tasks</a></li>
+            <li><a class="topic-link" href="#projects">Projects</a></li>
+            <li><a class="topic-link" href="#stories">Stories</a></li>
+            <li><a class="topic-link" href="#workspaces">Workspaces</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="section">
+    <a name="Overview"></a>
+    <h2>Overview</h2>
+    <div class="description">
+      <p>
+        The Asana API is a
+        <a target="_blank" href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a>ful
+        interface, providing programmatic access to much of the data in the system.
+        It provides predictable URLs for accessing resources, and uses built-in HTTP
+        features to receive commands and return responses. This makes it easy to
+        communicate with from a wide variety of environments, from command-line
+        utilities to gadgets to the browser URL bar itself.
+      </p>
+      <p>
+        The API accepts <a target="_blank" href="http://json.org/">JSON</a> or form-encoded
+        content in requests. It returns JSON content in all of its responses,
+        including errors.
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <a name="UseCases"></a>
+    <h2>Use Cases</h2>
+    <div class="description">
+      <p>
+        The Asana API lets you build a variety of applications and scripts to
+        integrate Asana with your business systems, show Asana data in other contexts,
+        and create tasks from various locations.
+      </p>
+      <p>
+        Here are some examples of the things you can build with the Asana API:
+        </p><ul>
+          <li>A browser extension to quickly create tasks from any web page</li>
+          <li>Source Control Integration to mark a task as complete and add a
+            link to the code submission as a comment when submitting code.</li>
+          <li>A desktop app that shows the tasks assigned to you</li>
+          <li>A dashboard page that shows a visual representation of complete and
+            incomplete tasks in a project</li>
+        </ul>
+      <p></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <a name="HelloWorld"></a>
+    <h2>Hello World</h2>
+    <div class="description">
+      <p>
+        Here is a sample application that creates a new task named "Hello World!"
+        and assigns it to a user.
+      </p>
+      <p>
+        First, we set up some constants to deal with values that will depend on
+        who is using this script. These include the user-specific
+        <a class="topic-link" href="#api_keys">API key</a>,
+        the ID of the <a class="topic-link" href="#workspaces">workspace</a>
+        in which the new task will be
+        created, and the email address of the user to whom it will be assigned.
+      </p>
+      <p>
+        Next, we set up our HTTP connection. Note that the API only accepts
+        secure connections via HTTPS.
+      </p>
+      <p>
+        Then we can start building the request. The most important part is
+        setting the <code>Authorization</code> header to provide the
+        API key (more details in the
+        <a class="topic-link" href="#Authentication">Authentication</a> section below).
+      </p>
+      <p>
+        All API POST and PUT requests expect a top-level object with a single
+        element in it named <code>data</code>. Successful responses will mirror this
+        format. The <code>data</code> element should itself be an object,
+        containing the parameters for the request. In the case of creating
+        a new task, these are the fields we want to set on the task itself.
+      </p>
+      <p>
+        If the request was
+        successful, we will get a response code of 201 indicating the object
+        was created. That response will have a <code>data</code> field at its
+        top level, which will contain complete information on the new task,
+        including its ID.
+      </p>
+      <p>
+        If something went wrong during the request, we'll get a different
+        status code and the JSON returned will contain an <code>errors</code>
+        field at the top level containing a list of problems. We look at the
+        first one and print out its message.
+      </p>
+    </div>
+    <div class="example">
+      <p><code class="code-ruby">#!/usr/bin/env ruby
+
+require "rubygems"
+require "JSON"
+require "net/https"</code></p>
+      <p><code class="code-ruby">api_key = <span class="code-placeholder">API-KEY</span>
+workspace_id = <span class="code-placeholder">WORKSPACE-ID</span>
+assignee = <span class="code-placeholder">ASSIGNEE-EMAIL</span></code></p>
+      <p><code class="code-ruby"><span class="code-comment"># set up HTTPS connection</span>
+uri = URI.parse("https://app.asana.com/api/1.0/tasks")
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_PEER</code></p>
+      <p><code class="code-ruby"><span class="code-comment"># set up the request</span>
+header = {
+  "Content-Type" =&gt; "application/json"
+}</code></p>
+      <p><code class="code-ruby">req = Net::HTTP::Post.new(uri.path, header)
+req.basic_auth(api_key, '')
+req.body = {
+  "data" =&gt; {
+    "workspace" =&gt; workspace_id,
+    "name" =&gt; "Hello World!",
+    "assignee" =&gt; assignee
+  }
+}.to_json()</code></p>
+      <p><code class="code-ruby"><span class="code-comment"># issue the request</span>
+res = http.start { |http| http.request(req) }
+
+<span class="code-comment"># output</span>
+body = JSON.parse(res.body)
+if body['errors'] then
+  puts "Server returned an error: #{body['errors'][0]['message']}"
+else
+  puts "Created task with id: #{body['data']['id']}"
+end</code></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <a name="ExampleApplications"></a>
+    <h2>Example Applications</h2>
+    <div class="description">
+      <p>
+        In addition to the <a class="topic-link" href="#HelloWorld">Hello World</a> application, we have written a Chrome extension which demonstrates using the API in a browser extension:
+      </p>
+      <p>
+      </p><ul>
+        <li>
+          <a target="_blank" href="https://github.com/Asana/Chrome-Extension-Example">Asana Chrome Extension</a>
+        </li>
+      </ul>
+      <p></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <a name="Authentication"></a>
+    <h2>Authentication</h2>
+    <div class="description">
+      <p>
+        All API requests must contain some mechanism for identifying the user
+        and ensuring they are authorized to make the request.
+        The Asana API uses <i>API keys</i> for this purpose. Each user has
+        their own unique
+        API key, which they can provide to applications to talk to Asana
+        on their behalf. A client with a user's key may access
+        information and make changes in the Asana system as if it were that user.
+      </p>
+      <p>
+        The API uses the widely supported HTTP Basic Authentication mechanism
+        to authenticate requests with the API key.
+      </p>
+      <a name="api_keys"></a>
+      <h3>Getting an API key</h3>
+      <p>
+        Any user can get their own API key by visiting the <b>Account Settings</b>
+        dialog and clicking on the <b>API</b> tab.
+      </p>
+      <p>
+        You can <a target="_blank" href="http://app.asana.com/-/account_api">go directly to the tab now</a>
+        to see your API key.
+      </p>
+    </div>
+    <div class="example">
+      <img src="API%20Documentation%20at%20Asana%20Developers_files/account_api_screenshot.png">
+    </div>
+  </div>
+  <div class="section">
+    <h3>Using basic authentication</h3>
+    <div class="description">
+      <p>
+        To authenticate a request, clients should use HTTP Basic Authentication
+        and pass the API key as the username, and an empty password. This will
+        cause the client to send a header like the following:
+      </p>
+      <p>
+        </p><table class="properties">
+          <tbody><tr class="property-row-1">
+            <td class="property-name">
+              Username
+            </td>
+            <td class="property-example-value">
+              FcZ23.M4xsMtXmTKmDA4ssLCkEnYi
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              The API key for the requesting user.
+              <br>
+              <b>Note:</b> Most utilities and libraries that allow you to specify
+              a username and password will handle proper encoding of the header for you.
+              However, if you need to set the <code>Authorization</code> header manually,
+              the header value is constructed by adding a colon (<code>:</code>)
+              to the API key, then base64-encoding that string. You can read more on
+              <a target="_blank" href="http://en.wikipedia.org/wiki/Basic_access_authentication">basic authentication</a>
+              if you need further details.
+            </td>
+          </tr>
+          <tr class="property-row-1">
+            <td class="property-name">
+              Password
+            </td>
+            <td class="property-example-value">
+              <span class="code-placeholder">empty</span>
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              The password should be blank.
+            </td>
+          </tr>
+        </tbody></table>
+      <p></p>
+    </div>
+    <div class="example">
+      <code class="code-headers"><span class="code-comment"># curl request using basic authentication</span>
+curl -u FcZ23.M4xsMtXmTKmDA4ssLCkEnYi: https://app.asana.com/api/1.0/users/me
+      </code>
+    </div>
+    <div class="example">
+      <code class="code-headers"><span class="code-comment"># Convert API key plus colon to base64</span>
+echo -n 'FcZ23.M4xsMtXmTKmDA4ssLCkEnYi:' | openssl enc -base64
+&gt;&gt;&gt; RmNaMjMuTTR4c010WG1US21EQTRzc0xDa0VuWWk6
+
+<span class="code-comment"># Example header using basic authentication</span>
+Authorization: Basic RmNaMjMuTTR4c010WG1US21EQTRzc0xDa0VuWWk6
+      </code>
+    </div>
+  </div>
+
+  <div class="section">
+    <a name="Errors"></a>
+    <h2>Errors</h2>
+    <div class="description">
+      <p>
+        Sadly, sometimes requests to the API are not successful. Failures can occur
+        for a wide range of reasons. In all cases, the API should return an
+        <a target="_blank" href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP Status Code</a>
+        that indicates the nature of the failure (below), with a response body
+        in JSON format containing additional information.
+      </p>
+      <p>
+        </p><table class="values">
+          <tbody><tr class="value-row">
+            <td class="value-name">
+              200
+            </td>
+            <td class="value-description">
+              <b>Success.</b> If data was requested, it will be available
+              in the <code>data</code> field at the top level of the response body.
+            </td>
+          </tr>
+          <tr class="value-row">
+            <td class="value-name">
+              201
+            </td>
+            <td class="value-description">
+              <b>Success (for object creation).</b> Its information is
+              available in the <code>data</code> field at the top level of the response body.
+              The API URL where the object can be retrieved is also returned
+              in the <code>Location</code> header of the response.
+            </td>
+          </tr>
+          <tr class="value-row">
+            <td class="value-name">
+              400
+            </td>
+            <td class="value-description">
+              <b>Invalid request.</b> This usually occurs because of a missing
+              or malformed parameter. Check the documentation and the syntax of
+              your request and try again.
+            </td>
+          </tr>
+          <tr class="value-row">
+            <td class="value-name">
+              401
+            </td>
+            <td class="value-description">
+              <b>No authorization.</b> A valid API key was not provided
+              with the request, so the API could not associate a user with
+              the request.
+            </td>
+          </tr>
+          <tr class="value-row">
+            <td class="value-name">
+              403
+            </td>
+            <td class="value-description">
+              <b>Access denied.</b> The API key was valid but the user
+              does not have the access required to complete the request.
+              This can happen if you try to read or write to objects that
+              the user does not have access to.
+            </td>
+          </tr>
+          <tr class="value-row">
+            <td class="value-name">
+              404
+            </td>
+            <td class="value-description">
+              <b>Not found.</b> Either the request method and path supplied do not
+              specify a known action in the API, or the object specified
+              by the request does not exist.
+            </td>
+          </tr>
+          <tr class="value-row">
+            <td class="value-name">
+              500
+            </td>
+            <td class="value-description">
+              <b>Server error.</b> There was a problem on Asana's end.
+            </td>
+          </tr>
+        </tbody></table>
+      <p></p>
+      <p>
+        In the event of an error, the response body will contain an <code>errors</code>
+        field at the top level. This contains an array of at least one error object,
+        described below:
+      </p>
+      <p>
+        </p><table class="properties">
+          <tbody><tr class="property-row-1">
+            <td class="property-name">
+              message
+            </td>
+            <td class="property-example-value">
+              project: Missing input
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              Message providing more detail about the error that occurred,
+              if available.
+            </td>
+          </tr>
+
+          <tr class="property-row-1">
+            <td class="property-name">
+              phrase
+            </td>
+            <td class="property-example-value">
+              6 sad squid snuggle softly
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              <b>500 errors only.</b> A unique error phrase which can be used
+              when contacting developer support to help identify the exact
+              occurrence of the problem in Asana's logs.
+            </td>
+          </tr>
+        </tbody></table>
+      <p></p>
+    </div>
+    <div class="example">
+      <div class="example-title">Missing authorization header</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl https://app.asana.com/api/1.0/users/me
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 401
+{
+  "errors": [
+    {
+      "message": "Not Authorized"
+    }
+  ]
+}</code>
+
+    </div>
+    <div class="example">
+      <div class="example-title">Bad request parameters</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/tasks
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 400
+{
+  "errors": [
+    {
+      "message": "workspace: Missing input"
+    }
+  ]
+}</code>
+
+    </div>
+    <div class="example">
+      <div class="example-title">Asana had a problem</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/users/me
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 500
+{
+  "errors": [
+    {
+      "message": "Server Error",
+      "phrase": "6 sad squid snuggle softly"
+    }
+  ]
+}</code>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <a name="Options"></a>
+    <h2>Input/Output Options</h2>
+    <div class="description">
+      <p>
+        In addition to providing fields and their values in a request, you may
+        also specify options to control how your request is interpreted
+        and how the response is generated. For GET requests, options are
+        specified as URL parameters prefixed with <code>opt_</code>. For
+        POST or PUT requests, options are specified in the body, inside the
+        top-level <code>options</code> object (a sibling of the <code>data</code> object).
+      </p>
+      <p>
+        These options are generally orthogonal and can be used in combination
+        in a single request.
+      </p>
+      <p>
+        </p><table class="properties">
+          <tbody><tr class="property-row-1">
+            <td class="property-name">
+              pretty
+            </td>
+            <td class="property-example-value">
+              ?opt_pretty
+              <br>
+              options: { pretty: true }
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              Provides the response in "pretty" output. In the case of JSON
+              this means doing proper line breaking and indentation to make it
+              readable. This will take extra time and increase the response size
+              so it is advisable only to use this during debugging.
+            </td>
+          </tr>
+
+          <tr class="property-row-1">
+            <td class="property-name">
+              method
+            </td>
+            <td class="property-example-value">
+              ?opt_method=put
+              <br>
+              options: { method: "put" }
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              In environments that do not support the full range of HTTP verbs,
+              this can be helpful to override the request method sent by the
+              browser, allowing access to the full range of actions in the API.
+              This should only be used when absolutely necessary, as circumventing
+              the browser's normal interpretation of the HTTP verbs can cause
+              issues. For example, spoofing a PUT request as a GET request to
+              update an object may not execute, because the browser or a proxy
+              may serve the request from a cache. To get around that particular
+              problem, please also pass a timestamp or otherwise unique ID in
+              the <code>opt_z</code> parameter to ensure the request is not
+              served by any cache.
+            </td>
+          </tr>
+
+          <tr class="property-row-1">
+            <td class="property-name">
+              fields
+            </td>
+            <td class="property-example-value">
+              ?opt_fields=followers,assignee
+              <br>
+              options: { fields: ["followers", "assignee"] }
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              Some requests return <i>compact</i> representations of objects,
+              to conserve resources and complete the request more quickly.
+              Other times requests return more information than you may need.
+              This option allows you to list the exact set of fields that the API
+              should be sure to return for the objects. The field names should
+              be provided as <a class="topic-link" href="#paths">paths</a>, described below.
+              <br>
+              <b>Note:</b> the <code>id</code> of included objects will always be
+              returned, regardless of the field options.
+            </td>
+          </tr>
+
+          <tr class="property-row-1">
+            <td class="property-name">
+              expand
+            </td>
+            <td class="property-example-value">
+              ?opt_expand=followers
+              <br>
+              options: { expand: ["followers"] }
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              Query results and sub-objects are returned in <i>compact</i> form
+              by default. This option can be used to expand query results or
+              sub-objects to return more detailed information. Be sure you really
+              need the information in the expanded form, as executing a query
+              with many results in expanded form can be costly and
+              return you a lot of data to consume.
+            </td>
+          </tr>
+        </tbody></table>
+      <p></p>
+      <a name="paths"></a>
+      <h3>Paths for fields/expand options</h3>
+      <p>
+        Some output options allow you to reference fields of objects that
+        specify <i>paths</i> of fields to either include or expand. These paths
+        take the form <code>a.b.c…</code> where <i>a</i> is the name of a
+        field on an object returned at the top level that refers to one or
+        more child objects, <i>b</i> the name of a field on those child objects
+        that refers to one or more grandchild objects, and so on. The <i>leaf</i>
+        or final entry in the path refers to any field on that object and is the
+        field affected by the option.
+      </p>
+      <p>
+        For example, when retrieving a task or tasks, consider the path
+        <code>followers.email</code>. It refers to the <code>email</code>
+        field all users mentioned in the <code>followers</code> field of the
+        task or tasks returned, as illustrated in the annotated output
+        below.
+      </p>
+      <p>
+        A period (<code>.</code>) on its own is the special designator for
+        the root path, and refers to the object or objects returned at the
+        root level.
+      </p>
+      <p>
+        </p><table class="annotated-code-table">
+          <tbody><tr class="annotated-code-header">
+            <td>Data</td>
+            <td>Path</td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>"data": {</code></td>
+            <td class="annotated-code-comment"><code>.</code></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>  "id": 1001,</code></td>
+            <td class="annotated-code-comment"></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>  "name": "Feed the cat",</code></td>
+            <td class="annotated-code-comment"><code>name</code></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>  "workspace": {</code></td>
+            <td class="annotated-code-comment"><code>workspace</code></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>    "id": 14916,</code></td>
+            <td class="annotated-code-comment"></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>    "name": "Shared Projects",</code></td>
+            <td class="annotated-code-comment"><code>workspace.name</code></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>  },</code></td>
+            <td class="annotated-code-comment"></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>  "followers": [{</code></td>
+            <td class="annotated-code-comment"><code>followers</code></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>    "id": 1234,</code></td>
+            <td class="annotated-code-comment"></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>    "email": "tbizarro@…",</code></td>
+            <td class="annotated-code-comment"><code>followers.email</code></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>  }, {</code></td>
+            <td class="annotated-code-comment"></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>    "id": 5678,</code></td>
+            <td class="annotated-code-comment"></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>    "email": "gsanchez@…",</code></td>
+            <td class="annotated-code-comment"><code>followers.email</code></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>  }]</code></td>
+            <td class="annotated-code-comment"></td>
+          </tr>
+          <tr>
+            <td class="annotated-code-line"><code>}</code></td>
+            <td class="annotated-code-comment"></td>
+          </tr>
+        </tbody></table>
+      <p></p>
+    </div>
+    <div class="example">
+      <div class="example-title">Default output</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/users/me
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{"data":{"email":"sanchez@...","id":999,"name":"Greg Sanchez"}}</code>
+
+    </div>
+    <div class="example">
+      <div class="example-title">Pretty output (how all API requests in this doc are presented)</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: "https://app.asana.com/api/1.0/users/me?<span class="code-emphasized">opt_pretty</span>"
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": {
+    "email": "sanchez@...",
+    "id": 999,
+    "name": "Greg Sanchez"
+  }
+}</code>
+
+    </div>
+    <div class="example">
+      <div class="example-title">Get only name and description of task</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: "https://app.asana.com/api/1.0/tasks/1224?<span class="code-emphasized">opt_fields=name,notes</span>"
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": {
+    "<span class="code-emphasized">name</span>": "<span class="code-emphasized">Make a list</span>",
+    "<span class="code-emphasized">notes</span>": "<span class="code-emphasized">Check it twice!</span>",
+    "id": 1224
+  }
+}</code>
+
+    </div>
+    <div class="example">
+      <div class="example-title">Reassign task, expanding projects in output</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl --request PUT -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/tasks/1001 \
+    -d "assignee=1234" \
+    -d "options.<span class="code-emphasized">expand</span>=%2Aprojects%2A"
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": {
+    "id": 1001,
+    "projects": [
+      {
+        "<span class="code-emphasized">archived</span>": false,
+        "<span class="code-emphasized">created_at</span>": "",
+        "<span class="code-emphasized">followers</span>": [],
+        "<span class="code-emphasized">modified_at</span>": "",
+        "<span class="code-emphasized">notes</span>": "",
+        "id": 1331,
+        "name": "Things to buy"
+      }
+    ],
+    ...
+  }
+}</code>
+
+    </div>
+  </div>
+
+  <a name="Reference"></a>
+
+  
+    <div class="section">
+    <a name="users"></a>
+    <h2>Users</h2>
+    <div class="description">
+      
+        <p>
+          A <i>user</i> object represents an account in Asana that can be given access to various workspaces, projects, and tasks.
+        </p>
+      
+        <p>
+          Like other objects in the system, users are referred to by numerical IDs. However, the special string identifier <code>me</code> can be used <em>anywhere</em> a user ID is accepted, to refer to the current authenticated user.
+        </p>
+      
+        <p>
+          Users only have a small set of fields:
+        </p>
+      
+      <p>
+      </p><table class="properties">
+        
+          <tbody><tr class="property-row-1">
+            <td class="property-name">
+              email
+            </td>
+            <td class="property-example-value">
+              gsanchez@example.com
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              The user's email address.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              name
+            </td>
+            <td class="property-example-value">
+              Greg Sanchez
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              The user's name.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              workspaces
+            </td>
+            <td class="property-example-value">
+              [ { id: 14916, name: "My Workspace" }, ... ]
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              Workspaces this user may access.
+              
+                <br><b>Note: </b> You may only see workspaces that you are in.
+              
+              
+            </td>
+          </tr>
+        
+      </tbody></table>
+      <p></p>
+    </div>
+    </div>
+
+    
+      <div class="section">
+        
+        <h3>Showing a single user</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">GET    /users/<span class="code-placeholder">user-id</span></code><br>
+            
+              <code class="code-routes">GET    /users/me</code><br>
+            
+          </p>
+          
+            <p>
+              This method returns the full user record for a single user.
+            </p>
+          
+          
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Show a single user.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/users/5678
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": {
+    "email": "gsanchez@example.com",
+    "id": 5678,
+    "name": "Greg Sanchez",
+    "workspaces": [
+      {
+        "id": 1337,
+        "name": "My Favorite Workspace"
+      },
+      ...
+    ]
+  }
+}</code>
+
+          </div>
+        
+      </div>
+    
+      <div class="section">
+        
+        <h3>Showing all users in all workspaces</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">GET    /users</code><br>
+            
+          </p>
+          
+            <p>
+              This method returns the user records, described above, for all users in all workspaces you may access.
+            </p>
+          
+          
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Show names and emails of all users in all workspaces.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: "https://app.asana.com/api/1.0/users?opt_fields=name,email"
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": [
+    {
+      "email": "tbizarro@example.com",
+      "id": 1234,
+      "name": "Tim Bizarro"
+    },
+    {
+      "email": "gsanchez@example.com",
+      "id": 5678,
+      "name": "Greg Sanchez"
+    },
+    ...
+  ]
+}</code>
+
+          </div>
+        
+      </div>
+    
+      <div class="section">
+        
+        <h3>Showing all users in a single workspace</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">GET    /workspaces/<span class="code-placeholder">workspace-id</span>/users</code><br>
+            
+          </p>
+          
+            <p>
+              This method returns the user records, described above, for all users in the specified workspace.
+            </p>
+          
+          
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Show all users in a single workspace.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/workspaces/1337/users
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": [
+    {
+      "id": 5678,
+      "name": "Greg Sanchez"
+    }
+  ]
+}</code>
+
+          </div>
+        
+      </div>
+    
+  
+    <div class="section">
+    <a name="tasks"></a>
+    <h2>Tasks</h2>
+    <div class="description">
+      
+        <p>
+          The <i>task</i> is the basic object around which many 
+operations in Asana are centered. In the Asana application, multiple 
+tasks populate the middle pane according to some view parameters, and 
+the set of selected tasks determine the more detailed information 
+presented in the details pane.
+        </p>
+      
+        <p>
+          Tasks have a rich set of metadata associated with them, some 
+of which is exposed via the API. Here are the accessible fields on a 
+task:
+        </p>
+      
+      <p>
+      </p><table class="properties">
+        
+          <tbody><tr class="property-row-1">
+            <td class="property-name">
+              assignee
+            </td>
+            <td class="property-example-value">
+              { id: 1234, name: "Tim Bizarro" }
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+              
+              User to which this task is assigned, or <code>null</code> if the task is unassigned.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              assignee_status
+            </td>
+            <td class="property-example-value">
+              upcoming
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+              
+              Scheduling status of this task for the user it is assigned to. One of the following values:
+              
+              
+                <table class="property-value-list">
+                  
+                    <tbody><tr>
+                      <td class="property-value-list-value">inbox</td>
+                      <td class="property-value-list-description">In the inbox.</td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="property-value-list-value">later</td>
+                      <td class="property-value-list-description">Scheduled for <i>later</i>.</td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="property-value-list-value">today</td>
+                      <td class="property-value-list-description">Scheduled for <i>today</i>.</td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="property-value-list-value">upcoming</td>
+                      <td class="property-value-list-description">Marked as <i>upcoming</i>.</td>
+                    </tr>
+                  
+                </tbody></table>
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              created_at
+            </td>
+            <td class="property-example-value">
+              2012-02-22T02:06:58.147Z
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              The time at which this task was created.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              completed
+            </td>
+            <td class="property-example-value">
+              false
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+              
+              True if the task is currently marked complete, false if not.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              completed_at
+            </td>
+            <td class="property-example-value">
+              2012-02-22T02:06:58.147Z
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              The time at which this task was completed, or <code>null</code> if the task is incomplete.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              due_on
+            </td>
+            <td class="property-example-value">
+              2012-03-26
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+              
+              Date on which this task is due, or <code>null</code> if the task has no due date.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              followers
+            </td>
+            <td class="property-example-value">
+              [ { id: 1123, name: "Mittens" }, ... ]
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              Array of users following this task.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              modified_at
+            </td>
+            <td class="property-example-value">
+              2012-02-22T02:06:58.147Z
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              The time at which this task was last modified.
+              
+                <br><b>Note: </b> This does not currently reflect any 
+changes in associations such as projects or comments that may have been 
+added or removed from the task.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              name
+            </td>
+            <td class="property-example-value">
+              Buy catnip
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+              
+              Name of the task. This is generally a short sentence 
+fragment that fits on a line in the UI for maximum readability. However,
+ it can be longer.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              notes
+            </td>
+            <td class="property-example-value">
+              Mittens really likes the stuff from Humboldt.
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+              
+              More detailed, free-form textual information associated with the task.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              projects
+            </td>
+            <td class="property-example-value">
+              [ { id: 1331, name: "Stuff to Buy" }, ... ]
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              Array of projects this task is associated with. These associations can be modified using the <code>addProject</code> and <code>removeProject</code> endpoints.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              workspace
+            </td>
+            <td class="property-example-value">
+              { id: 14916, name: "My Workspace" }
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+              
+                <b>Create-only.</b>
+              
+              The workspace this task is associated with. Once created, 
+task cannot be moved to a different workspace. This attribute can only 
+be specified at creation time.
+              
+              
+            </td>
+          </tr>
+        
+      </tbody></table>
+      <p></p>
+    </div>
+    </div>
+
+    
+      <div class="section">
+        
+        <h3>Creating a new task</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">POST    /tasks</code><br>
+            
+              <code class="code-routes">POST    /workspace/<span class="code-placeholder">workspace-id</span>/tasks</code><br>
+            
+          </p>
+          
+            <p>
+              Creating a new task is as easy as POSTing to the <code>/tasks</code> endpoint with a <code>data</code> block containing the fields you'd like to set on the task. Any unspecified fields will take on default values.
+            </p>
+          
+            <p>
+              Every task is required to be created in a specific <a class="topic-link" href="#workspaces">workspace</a>, and this workspace cannot be changed once set.
+            </p>
+          
+          
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Create a task.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/tasks \
+    -d "assignee=1235" \
+    -d "followers[0]=5678" \
+    -d "name=Hello, world%21" \
+    -d "notes=How are you today%3F" \
+    -d "workspace=14916"
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 201
+{
+  "data": {
+    "assignee": {
+      "id": 1235,
+      "name": "Tim Bizarro"
+    },
+    "assignee_status": "inbox",
+    "completed": false,
+    "completed_at": null,
+    "created_at": "2012-02-22T02:06:58.158Z",
+    "due_on": null,
+    "followers": [
+      {
+        "id": 5678,
+        "name": "Greg Sanchez"
+      }
+    ],
+    "id": 1001,
+    "modified_at": "2012-02-22T02:06:58.158Z",
+    "name": "Hello, world!",
+    "notes": "How are you today?",
+    "projects": [],
+    "workspace": {
+      "id": 14916,
+      "name": "My Favorite Workspace"
+    }
+  }
+}</code>
+
+          </div>
+        
+      </div>
+    
+      <div class="section">
+        
+        <h3>Showing a specific task</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">GET    /tasks/<span class="code-placeholder">task-id</span></code><br>
+            
+          </p>
+          
+            <p>
+              You can retrieve an existing task given its ID with a simple GET request.
+            </p>
+          
+            <p>
+              This method returns the complete task record, described above.
+            </p>
+          
+          
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Show a task.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/tasks/1001
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": {
+    "assignee": {
+      "id": 1234,
+      "name": "Tim Bizarro"
+    },
+    "created_at": "2012-02-22T02:06:58.158Z",
+    ...
+  }
+}</code>
+
+          </div>
+        
+      </div>
+    
+      <div class="section">
+        
+        <h3>Updating an existing task</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">PUT    /tasks/<span class="code-placeholder">task-id</span></code><br>
+            
+          </p>
+          
+            <p>
+              A specific, existing task can be updated by making a PUT 
+request on the URL for that task. Only the fields provided in the <code>data</code> block will be updated; any unspecified fields will remain unchanged.
+            </p>
+          
+            <p>
+              When using this method, it is best to specify <i>only</i> those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task.
+            </p>
+          
+            <p>
+              This method returns the complete updated task record, described above.
+            </p>
+          
+          
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Assign a task to yourself.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl --request PUT -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/tasks/1001 \
+    -d "assignee=me"
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": {
+    "assignee": {
+      "id": 1234,
+      "name": "Tim Bizarro"
+    },
+    "id": 1001,
+    ...
+  }
+}</code>
+
+          </div>
+        
+      </div>
+    
+      <div class="section">
+        
+        <h3>Querying for tasks</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">GET    /tasks</code><br>
+            
+              <code class="code-routes">GET    /projects/<span class="code-placeholder">project-id</span>/tasks</code><br>
+            
+              <code class="code-routes">GET    /workspaces/<span class="code-placeholder">workspace-id</span>/tasks</code><br>
+            
+          </p>
+          
+            <p>
+              In the future we plan to expand the power of queries to 
+enable filtering by arbitrary fields so you can more easily select the 
+set of tasks you want. For now, you may limit your query either to a 
+specific <i>project</i> or to an <i>assignee</i> and <i>workspace</i> with the following parameters:
+            </p>
+          
+          
+          
+            
+            <p>
+            </p><table class="properties">
+              
+                <tbody><tr class="property-row-1">
+                  <td class="property-name">
+                    assignee
+                  </td>
+                  <td class="property-example-value">
+                    1234
+                  </td>
+                </tr>
+                <tr class="property-row-2">
+                  <td></td>
+                  <td class="property-description">
+                    The ID of the assignee to filter tasks on. Only unarchived tasks in the assignee's list will be returned.
+                    
+                      <br><b>Note: </b> If you specify an <i>assignee</i>, you must also specify a <i>workspace</i> to filter on.
+                    
+                  </td>
+                </tr>
+              
+                <tr class="property-row-1">
+                  <td class="property-name">
+                    project
+                  </td>
+                  <td class="property-example-value">
+                    1331
+                  </td>
+                </tr>
+                <tr class="property-row-2">
+                  <td></td>
+                  <td class="property-description">
+                    The ID of a project to get tasks from. Only unarchived tasks in the project will be returned.
+                    
+                  </td>
+                </tr>
+              
+                <tr class="property-row-1">
+                  <td class="property-name">
+                    workspace
+                  </td>
+                  <td class="property-example-value">
+                    14619
+                  </td>
+                </tr>
+                <tr class="property-row-2">
+                  <td></td>
+                  <td class="property-description">
+                    The ID of the workspace to filter tasks on.
+                    
+                      <br><b>Note: </b> If you specify a <i>workspace</i> you must also specify an <i>assignee</i> to filter on.
+                    
+                  </td>
+                </tr>
+              
+            </tbody></table>
+            <p></p>
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Show non-archived tasks assigned to me in a workspace.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: "https://app.asana.com/api/1.0/tasks?workspace=14916&amp;assignee=me"
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": [
+    {
+      "id": 1248,
+      "name": "Buy catnip"
+    },
+    {
+      "id": 24816,
+      "name": "Reflect on role of kittens in society"
+    },
+    {
+      ...
+    }
+  ]
+}</code>
+
+          </div>
+        
+      </div>
+    
+      <div class="section">
+        
+        <h3>Reading task activity and comments</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">GET    /tasks/<span class="code-placeholder">task-id</span>/stories</code><br>
+            
+          </p>
+          
+            <p>
+              Tasks, like some other objects in the system, have a series of <a class="topic-link" href="#stories">stories</a>
+ associated with them. A story can be an indicator of some action taken 
+on a task (such as completing it), or it could be a comment left by a 
+user.
+            </p>
+          
+            <p>
+              See the section on <a class="topic-link" href="#stories.query">querying for all stories on an object</a> for more information.
+            </p>
+          
+          
+          
+        </div>
+        
+      </div>
+    
+      <div class="section">
+        
+        <h3>Commenting on a task</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">POST    /tasks/<span class="code-placeholder">task-id</span>/stories</code><br>
+            
+          </p>
+          
+            <p>
+              See the section on <a class="topic-link" href="#stories.comment">commenting on an object</a> for more information.
+            </p>
+          
+          
+          
+        </div>
+        
+      </div>
+    
+      <div class="section">
+        
+        <h3>Working with projects associated with a task</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">GET    /tasks/<span class="code-placeholder">task-id</span>/projects</code><br>
+            
+              <code class="code-routes">POST    /tasks/<span class="code-placeholder">task-id</span>/addProject</code><br>
+            
+              <code class="code-routes">POST    /tasks/<span class="code-placeholder">task-id</span>/removeProject</code><br>
+            
+          </p>
+          
+            <p>
+              Each task can be associated with zero or more <a class="topic-link" href="#projects">projects</a> in the system. The API allows you to query and change those associations.
+            </p>
+          
+            <p>
+              You can query the list of projects associated with a task by using the <code>projects</code> endpoint on a task, which will return a compact representation of each of the projects on the task specified.
+            </p>
+          
+            <p>
+              You can add or remove a project using the <code>addProject</code> or <code>removeProject</code> endpoints, respectively, providing the parameters below.
+            </p>
+          
+            <p>
+              Requests to add/remove projects, if successful, will return success and an empty data block.
+            </p>
+          
+          
+          
+            
+            <p>
+            </p><table class="properties">
+              
+                <tbody><tr class="property-row-1">
+                  <td class="property-name">
+                    project
+                  </td>
+                  <td class="property-example-value">
+                    1331
+                  </td>
+                </tr>
+                <tr class="property-row-2">
+                  <td></td>
+                  <td class="property-description">
+                    The ID of the project to add or remove from the task.
+                    
+                  </td>
+                </tr>
+              
+            </tbody></table>
+            <p></p>
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Show list of projects on a task.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/tasks/1001/projects
+
+<span class="code-comment"># Response</span>
+{
+  "data": [
+    {
+      "id": 1331,
+      "name": "Things To Buy"
+    },
+    {
+      "id": 14641,
+      "name": "Cat Stuff"
+    }
+  ]
+}</code>
+
+          </div>
+        
+          <div class="example">
+            <div class="example-title">Add project to a task.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/tasks/1001/addProject \
+    -d "project=14641"
+
+<span class="code-comment"># Response</span>
+{
+  "data": {
+  }
+}</code>
+
+          </div>
+        
+          <div class="example">
+            <div class="example-title">Remove project from a task.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/tasks/1001/removeProject \
+    -d "project=14641"
+
+<span class="code-comment"># Response</span>
+{
+  "data": {
+  }
+}</code>
+
+          </div>
+        
+      </div>
+    
+  
+    <div class="section">
+    <a name="projects"></a>
+    <h2>Projects</h2>
+    <div class="description">
+      
+        <p>
+          A <i>project</i> represents a prioritized list of tasks in Asana. It exists in a single <a class="topic-link" href="#workspaces">workspace</a> and is accessible to a subset of users in that workspace depending on its permissions.
+        </p>
+      
+        <p>
+          Projects, like <a class="topic-link" href="#tasks">tasks</a>, can have rich metadata associated with them, including the following fields:
+        </p>
+      
+      <p>
+      </p><table class="properties">
+        
+          <tbody><tr class="property-row-1">
+            <td class="property-name">
+              archived
+            </td>
+            <td class="property-example-value">
+              false
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+              
+              True if the project is archived, false if not. Archived 
+projects do not show in the UI by default and may be treated differently
+ for queries.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              created_at
+            </td>
+            <td class="property-example-value">
+              2012-02-22T02:06:58.147Z
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              The time at which this project was created.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              followers
+            </td>
+            <td class="property-example-value">
+              [ { id: 1123, name: "Mittens" }, ... ]
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              Array of users following this project.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              modified_at
+            </td>
+            <td class="property-example-value">
+              2012-02-22T02:06:58.147Z
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              The time at which this project was last modified.
+              
+                <br><b>Note: </b> This does not currently reflect any 
+changes in associations such as tasks or comments that may have been 
+added or removed from the project.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              name
+            </td>
+            <td class="property-example-value">
+              Stuff to buy
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+              
+              Name of the project. This is generally a short sentence 
+fragment that fits on a line in the UI for maximum readability. However,
+ it can be longer.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              notes
+            </td>
+            <td class="property-example-value">
+              These are things we need to purchase.
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+              
+              More detailed, free-form textual information associated with the project.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              workspace
+            </td>
+            <td class="property-example-value">
+              { id: 14916, name: "My Workspace" }
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+              
+                <b>Create-only.</b>
+              
+              The workspace this project is associated with. Once 
+created, projects cannot be moved to a different workspace. This 
+attribute can only be specified at creation time.
+              
+              
+            </td>
+          </tr>
+        
+      </tbody></table>
+      <p></p>
+    </div>
+    </div>
+
+    
+      <div class="section">
+        
+        <h3>Showing a single project</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">GET    /projects/<span class="code-placeholder">project-id</span></code><br>
+            
+          </p>
+          
+            <p>
+              This method returns the full record for a single project.
+            </p>
+          
+          
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Show a specific project.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/projects/1331
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": {
+    "id": 1331,
+    "name": "Things to Buy",
+    "notes": "These are things we want to purchase.",
+    ...
+  }
+}</code>
+
+          </div>
+        
+      </div>
+    
+      <div class="section">
+        
+        <h3>Updating a project</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">PUT    /projects/<span class="code-placeholder">project-id</span></code><br>
+            
+          </p>
+          
+            <p>
+              This method modifies the fields of a project provided in the request, then returns the full updated record.
+            </p>
+          
+          
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Update project notes.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl --request PUT -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/projects/1331 \
+    -d "notes=These are things we NEED to purchase."
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": {
+    "id": 1331,
+    "name": "Things to Buy",
+    "notes": "These are things we NEED to purchase.",
+    ...
+  }
+}</code>
+
+          </div>
+        
+      </div>
+    
+      <div class="section">
+        
+        <h3>Querying for tasks in a project</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">GET    /projects/<span class="code-placeholder">project-id</span>/tasks</code><br>
+            
+          </p>
+          
+            <p>
+              Returns the list of non-archived tasks in this project. Tasks can exist in more than one project at a time.
+            </p>
+          
+          
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Get visible tasks on a project.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/projects/1331/tasks
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": [
+    {
+      "id": 2001,
+      "name": "Catnip"
+    },
+    {
+      "id": 2002,
+      "name": "Kitty litter"
+    },
+    ...
+  ]
+}</code>
+
+          </div>
+        
+      </div>
+    
+      <div class="section">
+        
+        <h3>Querying for projects</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">GET    /projects</code><br>
+            
+              <code class="code-routes">GET    /workspaces/<span class="code-placeholder">workspace-id</span>/projects</code><br>
+            
+          </p>
+          
+            <p>
+              This method returns the projects, described above, according to the filter criteria provided.
+            </p>
+          
+          
+          
+            
+            <p>
+            </p><table class="properties">
+              
+                <tbody><tr class="property-row-1">
+                  <td class="property-name">
+                    archived
+                  </td>
+                  <td class="property-example-value">
+                    false
+                  </td>
+                </tr>
+                <tr class="property-row-2">
+                  <td></td>
+                  <td class="property-description">
+                    If provided, this parameter will filter on projects whose <i>archived</i> field takes on the specified value.
+                    
+                  </td>
+                </tr>
+              
+                <tr class="property-row-1">
+                  <td class="property-name">
+                    workspace
+                  </td>
+                  <td class="property-example-value">
+                    14916
+                  </td>
+                </tr>
+                <tr class="property-row-2">
+                  <td></td>
+                  <td class="property-description">
+                    If provided, this parameter will filter on projects which belong in the specified workspace
+                    
+                  </td>
+                </tr>
+              
+            </tbody></table>
+            <p></p>
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Show all projects in a workspace.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/workspaces/14916/projects
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": [
+    {
+      "id": 1331,
+      "name": "Things to buy"
+    },
+    {
+      "id": 14641,
+      "name": "Cat Stuff"
+    },
+    ...
+  ]
+}</code>
+
+          </div>
+        
+      </div>
+    
+  
+    <div class="section">
+    <a name="stories"></a>
+    <h2>Stories</h2>
+    <div class="description">
+      
+        <p>
+          A <i>story</i> represents an activity associated with an 
+object in the Asana system. Stories are generated by the system whenever
+ users take actions such as creating or assigning tasks, or moving tasks
+ between projects. <i>Comments</i> are also a form of user-generated story.
+        </p>
+      
+        <p>
+          Stories are a form of history in the system, and such they are
+ read-only. Once generated, it is not possible to modify a story.
+        </p>
+      
+      <p>
+      </p><table class="properties">
+        
+          <tbody><tr class="property-row-1">
+            <td class="property-name">
+              created_at
+            </td>
+            <td class="property-example-value">
+              2012-02-22T02:06:58.147Z
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              The time at which this story was created.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              created_by
+            </td>
+            <td class="property-example-value">
+              { id: 1123, name: "Mittens" }
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              The user who created the story.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              text
+            </td>
+            <td class="property-example-value">
+              marked today
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+              
+                <b>Create-only.</b>
+              
+              Human-readable text for the story or comment. This will not include the name of the creator.
+              
+                <br><b>Note: </b> This is not guaranteed to be stable 
+for a given type of story. For example, text for a reassignment may not 
+always say "assigned to ...". The API currently does not provide a 
+structured way of inspecting the meaning of a story.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              target
+            </td>
+            <td class="property-example-value">
+              { id: 1234, name: "Buy catnip" }
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              The object this story is associated with. May be a <a class="topic-link" href="#tasks">task</a> or a <a class="topic-link" href="#projects">project</a>.
+              
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              source
+            </td>
+            <td class="property-example-value">
+              web
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              The component of the Asana product the user used to trigger the story. Valid values are:
+              
+              
+                <table class="property-value-list">
+                  
+                    <tbody><tr>
+                      <td class="property-value-list-value">web</td>
+                      <td class="property-value-list-description">Via the Asana web app.</td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="property-value-list-value">email</td>
+                      <td class="property-value-list-description">Via email.</td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="property-value-list-value">mobile</td>
+                      <td class="property-value-list-description">Via the Asana mobile app.</td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="property-value-list-value">api</td>
+                      <td class="property-value-list-description">Via the Asana API.</td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="property-value-list-value">unknown</td>
+                      <td class="property-value-list-description">Unknown or unrecorded.</td>
+                    </tr>
+                  
+                </tbody></table>
+              
+            </td>
+          </tr>
+        
+          <tr class="property-row-1">
+            <td class="property-name">
+              type
+            </td>
+            <td class="property-example-value">
+              comment
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+                <b>Read-only.</b>
+              
+              
+              The type of story this is. Valid values are:
+              
+              
+                <table class="property-value-list">
+                  
+                    <tbody><tr>
+                      <td class="property-value-list-value">comment</td>
+                      <td class="property-value-list-description">A comment from a user. The <code>text</code> will be the message portion of the comment.</td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="property-value-list-value">system</td>
+                      <td class="property-value-list-description">A system-generated story based on a user action. The <code>text</code> will be a description of the action.</td>
+                    </tr>
+                  
+                </tbody></table>
+              
+            </td>
+          </tr>
+        
+      </tbody></table>
+      <p></p>
+    </div>
+    </div>
+
+    
+      <div class="section">
+        
+          <a name="stories.query"></a>
+        
+        <h3>Querying for all stories on an object</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">GET    /tasks/<span class="code-placeholder">task-id</span>/stories</code><br>
+            
+          </p>
+          
+            <p>
+              Returns the list of stories associated with the object. As
+ usual with queries, stories are returned in compact form. However, the 
+compact form for stories contains more information by default than just 
+the ID. There is presently no way to get a filtered set of stories.
+            </p>
+          
+          
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Show all stories on a task.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/tasks/1001/stories
+
+<span class="code-comment"># Response</span>
+{
+  "data": [
+    {
+      "created_at": "2011-12-21T23:23:01.259Z",
+      "created_by": {
+        "id": 5678,
+        "name": "Greg Sanchez"
+      },
+      "id": 2001,
+      "text": "added to Things To Buy",
+      "type": "system"
+    },
+    {
+      "created_at": "2012-01-02T21:32:40.112Z",
+      "created_by": {
+        "id": 1234,
+        "name": "Tim Bizarro"
+      },
+      "id": 2002,
+      "text": "Again? Wow, we really go through this stuff fast.",
+      "type": "comment"
+    }
+  ]
+}</code>
+
+          </div>
+        
+      </div>
+    
+      <div class="section">
+        
+        <h3>Showing a single story</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">GET    /stories/<span class="code-placeholder">story-id</span></code><br>
+            
+          </p>
+          
+            <p>
+              This method returns the full record for a single story.
+            </p>
+          
+          
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Show a specific story.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/stories/2001
+
+<span class="code-comment"># Response</span>
+HTTP/1.1 200
+{
+  "data": {
+    "created_at": "2012-02-22T02:06:58.147Z",
+    "created_by": {
+      "id": 1123,
+      "name": "Mittens"
+    },
+    "id": 2001,
+    "source": "web",
+    "target": {
+      "id": 1234,
+      "name": "Buy catnip"
+    },
+    "text": "Yes, please!",
+    "type": "comment"
+  }
+}</code>
+
+          </div>
+        
+      </div>
+    
+      <div class="section">
+        
+          <a name="stories.comment"></a>
+        
+        <h3>Commenting on an object</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">POST    /tasks/<span class="code-placeholder">task-id</span>/stories</code><br>
+            
+          </p>
+          
+            <p>
+              Adds a comment to an object. The comment will be authored 
+by the authorized user, and timestamped when the server receives the 
+request. You can provide the following parameters when posting the 
+comment:
+            </p>
+          
+          
+          
+            
+            <p>
+            </p><table class="properties">
+              
+                <tbody><tr class="property-row-1">
+                  <td class="property-name">
+                    text
+                  </td>
+                  <td class="property-example-value">
+                    Hello!
+                  </td>
+                </tr>
+                <tr class="property-row-2">
+                  <td></td>
+                  <td class="property-description">
+                    The body of the comment to add.
+                    
+                  </td>
+                </tr>
+              
+            </tbody></table>
+            <p></p>
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Comment on a task.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/tasks/1001/stories \
+    -d "text=This is a very nice comment."
+
+<span class="code-comment"># Response</span>
+{
+  "data": {
+    "created_at": "2011-12-21T23:23:01.259Z",
+    "created_by": {
+      "id": 5678,
+      "name": "Greg Sanchez"
+    },
+    "id": 2001,
+    "source": "api",
+    "target": {
+      "id": 1001,
+      "name": "Buy catnip"
+    },
+    "text": "This is a very nice comment.",
+    "type": "comment"
+  }
+}</code>
+
+          </div>
+        
+      </div>
+    
+  
+    <div class="section">
+    <a name="workspaces"></a>
+    <h2>Workspaces</h2>
+    <div class="description">
+      
+        <p>
+          A <i>workspace</i> is the most basic organizational unit in Asana. All projects and tasks have an associated workspace.
+        </p>
+      
+        <p>
+          Workspaces expose the following fields:
+        </p>
+      
+      <p>
+      </p><table class="properties">
+        
+          <tbody><tr class="property-row-1">
+            <td class="property-name">
+              name
+            </td>
+            <td class="property-example-value">
+              My Favorite Workspace
+            </td>
+          </tr>
+          <tr class="property-row-2">
+            <td></td>
+            <td class="property-description">
+              
+              
+              Name of the workspace.
+              
+              
+            </td>
+          </tr>
+        
+      </tbody></table>
+      <p></p>
+    </div>
+    </div>
+
+    
+      <div class="section">
+        
+          <a name="workspaces.query"></a>
+        
+        <h3>Showing available workspaces</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">GET    /workspaces</code><br>
+            
+          </p>
+          
+            <p>
+              This method returns the workspace records, described above.
+            </p>
+          
+          
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Show all available workspaces.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/workspaces
+
+<span class="code-comment"># Response</span>
+{
+  "data": [
+    {
+      "id": 1337,
+      "name": "My Favorite Workspace"
+    },
+    ...
+  ]
+}</code>
+
+          </div>
+        
+      </div>
+    
+      <div class="section">
+        
+          <a name="workspace.update"></a>
+        
+        <h3>Updating an existing workspace</h3>
+        <div class="description">
+          <p>
+            
+              <code class="code-routes">PUT    /workspaces/<span class="code-placeholder">workspace-id</span></code><br>
+            
+          </p>
+          
+            <p>
+              A specific, existing workspace can be updated by making a 
+PUT request on the URL for that workspace. Only the fields provided in 
+the data block will be updated; any unspecified fields will remain 
+unchanged.
+            </p>
+          
+          
+            <p>
+              Currently the only field that can be modified for a workspace is its <code>name</code>.
+            </p>
+          
+            <p>
+              This method returns the complete updated workspace record, described above.
+            </p>
+          
+          
+        </div>
+        
+          <div class="example">
+            <div class="example-title">Rename a workspace.</div>
+<code class="code-curl"><span class="code-comment"># Request</span>
+curl --request PUT -u <i>&lt;api_key&gt;</i>: https://app.asana.com/api/1.0/workspaces/1337 \
+    -d "name=Everyone%27s Favorite Workspace"
+
+<span class="code-comment"># Response</span>
+{
+  "data": {
+    "id": 1337,
+    "name": "Everyone's Favorite Workspace"
+  }
+}</code>
+
+          </div>
+        
+      </div>
+    
+  
+
+</div>
+
+
+
+
+
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="API%20Documentation%20at%20Asana%20Developers_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+  try {
+    var pageTracker = _gat._getTracker("UA-11757081-1");
+    pageTracker._trackPageview();
+  } catch(err) {}
+</script>
+</div>
+</div>
+
+  <div id="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <ul class="horizontal section cf">
+           <li><a href="http://www.asana.com/product">Product</a></li>
+           <li><a href="http://asana.com/blog">Blog</a></li>
+           <li><a href="http://www.asana.com/jobs">Jobs</a></li>
+           <li><a href="http://www.asana.com/about">About</a></li>
+           <li><a href="http://www.asana.com/help">Help</a></li>
+		   <li><a class="you-are-here" href="http://developers.asana.com/">Developers</a></li>
+        </ul>
+        <ul id="legal" class="horizontal cf">
+          <li><a href="http://www.asana.com/terms">Terms</a> &amp; <a href="http://www.asana.com/privacy">Privacy</a></li>
+          <li style="margin-right: 10px;"> | </li>
+          <li> © 2012 Asana </li>
+        </ul>
+      </div>
+      <div class="footer-right">
+        <ul class="horizontal external cf">
+          <li><a href="http://facebook.com/asana" class="facebook-link"></a></li>
+          <li><a href="http://twitter.com/#%21/asana" class="twitter-link"></a></li>
+          <li><a href="http://youtube.com/user/AsanaTeam" class="youtube-link"></a></li>
+          <li><a href="http://www.asana.com/rss" class="rss-link"></a></li>
+          <li><a href="http://www.asana.com/kittens" class="cat-link"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body></html>
