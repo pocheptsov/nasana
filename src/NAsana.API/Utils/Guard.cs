@@ -25,7 +25,7 @@
         /// <param name="paramName">The name of the parameter.</param>
         /// <param name="value">The value of the parameter.</param>
         /// <exception cref="ArgumentNullException">Thrown if value is null.</exception>
-        internal static void NotNull(string paramName, object value)
+        public static void NotNull(string paramName, object value)
         {
             if (value == null)
             {
@@ -68,7 +68,7 @@
         public static void LowerThan<T>(string paramName, T val, T min)
             where T : IComparable
         {
-            if (val.CompareTo(min) < 0)
+            if (val.CompareTo(min) > 0)
             {
                 throw new ArgumentOutOfRangeException(String.Format(SR.ArgumentTooSmallError, paramName, min), paramName);
             }
@@ -77,7 +77,7 @@
         public static void GreaterThan<T>(string paramName, T val, T max)
             where T : IComparable
         {
-            if (val.CompareTo(max) > 0)
+            if (val.CompareTo(max) < 0)
             {
                 throw new ArgumentOutOfRangeException(String.Format(SR.ArgumentTooSmallError, paramName, max), paramName);
             }

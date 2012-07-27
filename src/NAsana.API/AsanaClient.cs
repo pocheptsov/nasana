@@ -1,12 +1,12 @@
 ﻿namespace NAsana.API.v1
 {
     using System;
+    using System.Diagnostics;
     using System.Linq;
     using System.Net;
     using System.Reflection;
     using Exceptions;
     using Model;
-    using Model.OAuth;
     using RestSharp;
     using Utils;
 
@@ -25,11 +25,23 @@
         {
         }
 
-        protected AsanaClient(IRestClient restClient)
+        protected internal AsanaClient(IRestClient restClient)
         {
             Guard.NotNull("restClient", restClient);
             Client = restClient;
+            ErrorHandler =
+                (ex, actionName) =>
+                    {
+                        if (Debugger.IsAttached && Debugger.IsLogging())
+                        {
+                            Debugger.Log(1, Debugger.DefaultCategory,
+                                         string.Format("Error occured in a {0} method with message: {1}", actionName,
+                                                       ex.Message));
+                        }
+                    };
         }
+
+        public Action<Exception, string> ErrorHandler { get; set; }
 
 
         protected TModel ExecuteRequest<TModel>(IRestRequest request,

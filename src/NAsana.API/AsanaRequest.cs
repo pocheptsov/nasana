@@ -1,10 +1,3 @@
-#region (c)2010 Lokad - New BSD license
-
-// Company: Lokad SAS, http://www.lokad.com/
-// This code is released under the terms of the new BSD licence
-
-#endregion
-
 namespace NAsana.API.v1
 {
     using System.Collections.Generic;
@@ -52,6 +45,7 @@ namespace NAsana.API.v1
                 request.Parameters.AddRange(parameters);
             }
 
+            request.DateFormat = "yyyy-MM-dd";
             request.Resource = resource;
             request.RequestFormat = DataFormat.Json;
             request.RootElement = "data";

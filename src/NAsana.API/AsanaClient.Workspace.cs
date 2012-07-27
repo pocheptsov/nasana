@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using Model;
+    using Model.Utils;
     using RestSharp;
     using Utils;
 
@@ -25,11 +26,15 @@
                 return ExecuteRequest<List<Workspace>>(request);
             }
 
-            public List<Task> GetWorkspaceTasks(int workspaceId)
+            public List<Task> GetWorkspaceTasks(long workspaceId, UserId assigneeId)
             {
                 Guard.GreaterThan("workspaceId", workspaceId, 0);
 
-                var request = AsanaRequest.Get(string.Format("workspaces/{0}/tasks", workspaceId));
+                var request = AsanaRequest.Get(string.Format("tasks"));
+
+                request.AddParameter(RequestParamNames.Assignee, assigneeId.ToString());
+                request.AddParameter(RequestParamNames.Workspace, workspaceId);
+
                 return ExecuteRequest<List<Task>>(request);
             }
 
