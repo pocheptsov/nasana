@@ -5,6 +5,7 @@
     using v1;
     using v1.Model.Utils;
 
+    [TestFixture]
     public class WorkspaceAsanaClientTests
     {
 // ReSharper disable InconsistentNaming
@@ -32,7 +33,6 @@
 
         #region Nested type: WorkspaceAsanaClientGetWorkspaceTasks
 
-        [TestFixture]
         public class WorkspaceAsanaClientGetWorkspaceTasks
         {
             [Test]

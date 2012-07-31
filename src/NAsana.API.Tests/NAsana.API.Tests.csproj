@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsanaClientTestHelper.cs" />
+    <Compile Include="UserAsanaClientTests.cs" />
     <Compile Include="Mocks\TestRestClient.cs" />
     <Compile Include="SimpleTests\CompareObjects.cs" />
     <Compile Include="SimpleTests\Specs.cs" />
@@ -70,6 +71,12 @@
     <Compile Include="AsanaClientTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\settings.config">
+      <Link>settings.config</Link>
+    </None>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

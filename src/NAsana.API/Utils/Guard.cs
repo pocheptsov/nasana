@@ -1,6 +1,7 @@
 ﻿namespace NAsana.API.v1.Utils
 {
     using System;
+    using System.Linq.Expressions;
 
     public class Guard
     {
@@ -98,6 +99,14 @@
             if (val1.CompareTo(val2) == 0)
             {
                 throw new ArgumentException(String.Format(SR.ArgumentEqual, paramName, val1, val2), paramName);
+            }
+        }
+
+        public static void IsTrue(string paramName, Expression<Func<bool>> expr)
+        {
+            if(!expr.Compile()())
+            {
+                throw new ArgumentException(String.Format(SR.IsNotTrue, paramName));
             }
         }
     }

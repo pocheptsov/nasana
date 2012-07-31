@@ -21,7 +21,7 @@ namespace NAsana.API.v1
         {
             var request = CreateRequest(resource, parameters);
             request.Method = Method.GET;
-            _asanaOptionsApplier.ApplyOptions(request, true);
+            ApplyOptions(request, true);
 
             return request;
         }
@@ -30,7 +30,7 @@ namespace NAsana.API.v1
         {
             var request = CreateRequest(resource, parameters);
             request.Method = Method.POST;
-            _asanaOptionsApplier.ApplyOptions(request, false);
+            ApplyOptions(request, false);
 
             return request;
         }
@@ -39,7 +39,7 @@ namespace NAsana.API.v1
         {
             var request = CreateRequest(resource, parameters);
             request.Method = Method.DELETE;
-            _asanaOptionsApplier.ApplyOptions(request, false);
+            ApplyOptions(request, false);
 
             return request;
         }
@@ -48,9 +48,17 @@ namespace NAsana.API.v1
         {
             var request = CreateRequest(resource, parameters);
             request.Method = Method.PUT;
-            _asanaOptionsApplier.ApplyOptions(request, false);
+            ApplyOptions(request, false);
 
             return request;
+        }
+
+        private void ApplyOptions(IRestRequest request, bool isGet)
+        {
+            if (_asanaOptionsApplier != null)
+            {
+                _asanaOptionsApplier.ApplyOptions(request, true);
+            }
         }
 
         public AsanaRequest Options(AsanaOptions options)

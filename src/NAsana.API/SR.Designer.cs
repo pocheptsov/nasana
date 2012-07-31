@@ -113,5 +113,14 @@ namespace NAsana.API.v1 {
                 return ResourceManager.GetString("ArgumentTooSmallError", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string IsNotTrue {
+            get {
+                return ResourceManager.GetString("IsNotTrue", resourceCulture);
+            }
+        }
     }
 }
