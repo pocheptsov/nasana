@@ -60,6 +60,8 @@
     </Compile>
     <Compile Include="AsanaClient.Workspace.cs">
     </Compile>
+    <Compile Include="AsanaOptions.cs" />
+    <Compile Include="AsanaOptionsApplier.cs" />
     <Compile Include="Exceptions\NAsanaApiException.cs" />
     <Compile Include="Model\AssigneeStatus.cs" />
     <Compile Include="Model\Tag.cs" />

@@ -7,6 +7,12 @@
 
     public class WorkspaceAsanaClientTests
     {
+// ReSharper disable InconsistentNaming
+        private const string short_workspace_response_content = "{\"data\":[{\"id\":1346674263886,\"name\":\"test task\"}," +
+                                                                "{\"id\":1346674263887,\"name\":\"some not useful task\"}," +
+                                                                "{\"id\":1346674263888,\"name\":\"moreover\"}]}";
+// ReSharper restore InconsistentNaming
+
         #region Nested type: WorkspaceAsanaClientCtr
 
         [TestFixture]
@@ -24,22 +30,27 @@
 
         #endregion
 
+        #region Nested type: WorkspaceAsanaClientGetWorkspaceTasks
 
         [TestFixture]
         public class WorkspaceAsanaClientGetWorkspaceTasks
         {
             [Test]
-            public void success_non_zero_tasks_request()
+            public void success_non_zero_tasks_short_request()
             {
-                var restClient = new TestRestClient("{\"data\":[{\"id\":1346674263886,\"name\":\"test task\"},{\"id\":1346674263887,\"name\":\"some not useful task\"},{\"id\":1346674263888,\"name\":\"moreover\"}]}");
-                var workspaceAsanaClient = new AsanaClient.WorkspaceAsanaClient(new AsanaClient(restClient));
+                var workspaceAsanaClient =
+                    AsanaClientTestHelper.GetAsanaClient<AsanaClient.WorkspaceAsanaClient>(short_workspace_response_content);
 
-                var tasks = workspaceAsanaClient.GetWorkspaceTasks(14619, UserPredefinedId.Me);
+                const int randomWorkspaceId = 14619;
+
+                var tasks = workspaceAsanaClient.GetWorkspaceTasks(randomWorkspaceId, UserPredefinedId.Me);
 
                 Assert.That(tasks, Is.Not.Null);
                 Assert.That(tasks.Count, Is.GreaterThan(0));
                 Assert.That(tasks[0].Name, Is.EqualTo("test task"));
             }
         }
+
+        #endregion
     }
 }

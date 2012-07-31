@@ -15,13 +15,15 @@
         private const string BaseUrl = "https://app.asana.com/api/1.0/";
 
         protected readonly IRestClient Client;
+        protected AsanaOptions RequestOptions;
+        private AsanaRequest _asanaRequest;
 
         public AsanaClient(AsanaConfig config)
             : this(new RestClient(BaseUrl)
-                                    {
-                                        Authenticator =
-                                            new HttpBasicAuthenticator(config.ApiKey, string.Empty)
-                                    })
+                       {
+                           Authenticator =
+                               new HttpBasicAuthenticator(config.ApiKey, string.Empty)
+                       })
         {
         }
 
@@ -43,6 +45,13 @@
 
         public Action<Exception, string> ErrorHandler { get; set; }
 
+        public AsanaOptions ClientOptions { get; set; }
+
+        protected AsanaRequest AsanaRequest
+        {
+            get { return _asanaRequest ?? (_asanaRequest = new AsanaRequest(RequestOptions ?? ClientOptions)); }
+            set { _asanaRequest = value; }
+        }
 
         protected TModel ExecuteRequest<TModel>(IRestRequest request,
                                                 HttpStatusCode expectedStatusCode = HttpStatusCode.OK)
@@ -100,7 +109,7 @@
         {
             // validate arguments
             Guard.NotNull("response", response);
-            
+
             // check if the user was not authorized to make the request
             /*if (response.StatusCode == HttpStatusCode.Unauthorized && expectedStatusCode != HttpStatusCode.Unauthorized)
                 throw new LinkedINUnauthorizedException();
@@ -129,12 +138,34 @@
             request.AddObject(task, whitelist);
             //include only id of workspace
             request.AddParameter(new Parameter
-            {
-                Name = "workspace",
-                Value = workspaceId,
-            });
+                                     {
+                                         Name = "workspace",
+                                         Value = workspaceId,
+                                     });
 
             return ExecuteRequest<Task>(request);
+        }
+    }
+
+    public class AsanaClient<TAsanaClient> : AsanaClient where TAsanaClient : AsanaClient
+    {
+        public AsanaClient(AsanaConfig config)
+            : base(config)
+        {
+        }
+
+        protected internal AsanaClient(IRestClient restClient)
+            : base(restClient)
+        {
+        }
+
+        public TAsanaClient Options(AsanaOptions asanaOptions)
+        {
+            if (asanaOptions != null)
+            {
+                RequestOptions = asanaOptions;
+            }
+            return (TAsanaClient) (AsanaClient) this;
         }
     }
 }

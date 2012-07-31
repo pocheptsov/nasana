@@ -13,7 +13,7 @@
             get { return new WorkspaceAsanaClient(this); }
         }
 
-        public class WorkspaceAsanaClient : AsanaClient
+        public class WorkspaceAsanaClient : AsanaClient<WorkspaceAsanaClient>
         {
             public WorkspaceAsanaClient(AsanaClient asanaClient)
                 : base(asanaClient.Client)

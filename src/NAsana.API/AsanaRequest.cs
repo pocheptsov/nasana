@@ -3,41 +3,66 @@ namespace NAsana.API.v1
     using System.Collections.Generic;
     using RestSharp;
 
-    internal class AsanaRequest
+    public class AsanaRequest
     {
-        public static IRestRequest Get(string resource, params Parameter[] parameters)
+        private readonly AsanaOptionsApplier _asanaOptionsApplier;
+        private AsanaOptions _options;
+
+        public AsanaRequest(AsanaOptions options)
+        {
+            if (options != null)
+            {
+                _options = options;
+                _asanaOptionsApplier = new AsanaOptionsApplier(_options);
+            }
+        }
+
+        public IRestRequest Get(string resource, params Parameter[] parameters)
         {
             var request = CreateRequest(resource, parameters);
             request.Method = Method.GET;
+            _asanaOptionsApplier.ApplyOptions(request, true);
 
             return request;
         }
 
-        public static IRestRequest Post(string resource, params Parameter[] parameters)
+        public IRestRequest Post(string resource, params Parameter[] parameters)
         {
             var request = CreateRequest(resource, parameters);
             request.Method = Method.POST;
+            _asanaOptionsApplier.ApplyOptions(request, false);
 
             return request;
         }
 
-        public static IRestRequest Delete(string resource, params Parameter[] parameters)
+        public IRestRequest Delete(string resource, params Parameter[] parameters)
         {
             var request = CreateRequest(resource, parameters);
             request.Method = Method.DELETE;
+            _asanaOptionsApplier.ApplyOptions(request, false);
 
             return request;
         }
 
-        public static IRestRequest Put(string resource, params Parameter[] parameters)
+        public IRestRequest Put(string resource, params Parameter[] parameters)
         {
             var request = CreateRequest(resource, parameters);
             request.Method = Method.PUT;
+            _asanaOptionsApplier.ApplyOptions(request, false);
 
             return request;
         }
 
-        private static IRestRequest CreateRequest(string resource, IEnumerable<Parameter> parameters)
+        public AsanaRequest Options(AsanaOptions options)
+        {
+            if (options != null)
+            {
+                _options = options;
+            }
+            return this;
+        }
+
+        private IRestRequest CreateRequest(string resource, IEnumerable<Parameter> parameters)
         {
             var request = new RestRequest();
             if (parameters != null)

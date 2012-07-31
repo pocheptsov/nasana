@@ -31,15 +31,7 @@
                 var request = AsanaRequest.Get(string.Format("users/{0}", userId));
                 return ExecuteRequest<User>(request);
             }
-
-            public List<User> GetUsers(params UserFields[] optionalUserFields)
-            {
-                optionalUserFields = optionalUserFields ?? new[] {UserFields.Email, UserFields.Name};
-
-                var request = AsanaRequest.Get("users");
-                request.AddParameter(RequestParamNames.OptionalFields, string.Join(",", optionalUserFields));
-                return ExecuteRequest<List<User>>(request);
-            }
+            
         }
     }
 }
