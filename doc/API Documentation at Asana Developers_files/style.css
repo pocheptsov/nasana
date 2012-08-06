@@ -4,39 +4,47 @@
 
    =========================================================================================== */
 
-html {
-  height: 100%;
+html, body {
+	margin: 0px;
+	padding: 0px;
+	background-repeat: repeat;
+	background-attachment: fixed;
+	font-family: proxima-nova, "Helvetica Neue", Arial, sans-serif;
+	z-index: 1;
+	background-color: #dde4ea;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#dde4ea), color-stop(100%, #afbcc8));
+	background-image: -moz-linear-gradient(90deg, #afbcc8 0%, #dde4ea);
+	color: #212f40;
+	border-top: 1px solid #9cacbc; 
+	font-size:16px;
+	line-height:22px;
 }
-
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-  line-height: 22px;
-  background-repeat: repeat;
-  background-attachment: fixed;
-  font-family: proxima-nova, "Helvetica Neue", Arial, sans-serif;
-  z-index: 1;
-  background-color: #afbcc8;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#dde4ea), color-stop(100%, #afbcc8));
-  background-image: -moz-linear-gradient(90deg, #afbcc8 0%, #dde4ea);
-  color: #212f40;
-  border-top: 1px solid #9cacbc; 
-}
-
 .bg-pattern {
   position: fixed;
+  width: 100%;
   height: 100%;
+  z-index: -1;
+}
+.webkit {
+  background: url("https://asana_static.s3.amazonaws.com/images/bg-pattern.png");
+  z-index: -1;
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(black)); 
+}
+code {
+  font-family: monospace;
+}
+#bg-wrap {
+  min-width: 1000px;
+  position: absolute;
+  overflow: hidden;
+  height: auto;
   width: 100%;
 }
-
-.webkit {
-	background: url("https://s3.amazonaws.com/asanadev/bg-pattern.png");
-	z-index: -1;
-	-webkit-mask: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(black));
+#page-wrap {
+  position: relative;
+  width: 1000px;
+  margin: 0 auto;
 }
-
 a,a:link {
   color: #228ed0;
   text-decoration: none;
@@ -44,6 +52,9 @@ a,a:link {
 a:hover {
   color: #114d96;
   text-decoration: none;
+}
+.bold {
+  font-weight: 700;
 }
 p {
   margin: 0 0 10px 0;
@@ -56,61 +67,76 @@ overflow: hidden;
 height: auto;
 width: 100%;
 }
-img.bg {
-min-width: 1200px;
-widtht: auto !important;
-width: 1200px;
-width: 100%;
-height: auto;
-display: block;
-position: absolute;
-top: 0;
-left: 0;
-}
 
-
-
-/* ==========================================================================================
-
-    Header
-
-   =========================================================================================== */
-
+/* 
+Header
+*/
 
 #header {
-  background:transparent;
-  height: 70px;
-  border-top: 0;
-  position: relative;
-  width: 1000px;
-  margin: 0px auto;
+height: 100px;
+position: relative;
+width:1000px; 
+margin:0 auto;
 }
 .logo {
-  position: absolute;
-  display: block;
-  top: 28px;
-  left: 20px;
-  width: 135px;
-  height: 24px;
+position: absolute;
+display: block;
+top: 25px;
+left: 30px;
+}
+#header-main {
+width:1000px; 
+margin:0 auto; 
+position:relative;
+}
+#right-highlight {
+position:absolute; 
+right:-90px;
+background-image:url('http://asana_static.s3.amazonaws.com/images/right_highlight.png');
+width:400px;
+height:126px;
+}
+#main {
+overflow: auto;
+padding-bottom: 30px;
 }
 .logotext {
-  position: absolute;
-  top: 32px;
-  left: 161px;
-  font-family:proxima-nova-condensed,proxima-nova,"Helvetica Neue", Arial, sans-serif;
-  font-size:24px;
-  color:#596573;
-  font-weight:600;
+position: absolute;
+top: 29px;
+left: 171px;
+font-family:proxima-nova-condensed,proxima-nova,"Helvetica Neue", Arial, sans-serif;
+font-size:24px;
+color:#596573;
+font-weight:600;
 }
-ul.headerbutton {
-  position: absolute;
-  right: 20px;
-  top: 25px;
+
+
+/* navigation */
+ul.vertical {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 ul.horizontal {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+ul.horizontal li {
+  float: left;
+}
+ul.headerbutton {
+  position: absolute;
+  right: 30px;
+  top: 25px;
+}
+ul.headerbutton li a {
+display: block;
+margin-left: 15px;
+text-decoration: none;
+font-size: 15px;
+font-weight: 600;
+padding: 6px 10px;
 }
 #header li {
   float: right;
@@ -145,7 +171,7 @@ ul.horizontal {
 #container {
   position:relative;
   width: 980px;
-  margin: 10px auto 110px;
+  margin: 10px auto 10px;
   padding: 20px 10px 10px;
   background-color: #fff;  
   border: 1px solid #9CACBC;
@@ -159,7 +185,7 @@ ul.horizontal {
 #container-wide {
   position:relative;
   width: 1180px;
-  margin: 10px auto 110px;
+  margin: 10px auto 10px;
   padding: 20px 10px 10px;
   background-color: #fff;  
   border: 1px solid #9CACBC;
@@ -239,8 +265,8 @@ ul.horizontal {
 
 
 #content h2 {
-  font-size: 18px;
-  padding: 10px 0 0 0;
+  font-size: 20px;
+  padding: 10px 0;
   font-weight: 300;
 }
 #content h2.headline {
@@ -687,67 +713,77 @@ blockquote {
 
    =========================================================================================== */
 
-
 #footer {
   position: relative;
   clear: both;
-  margin-top: -100px;
-  background:transparent;
-  height: 99px;
+  padding-bottom:80px;	
 }
-#footer a {
-  color: #596573;
-  font-size:16px;
-}
-#footer a:hover {
-  color: #1e8dd6;
-}
-#footer li {
-  float: left;
-}
-.footer-content {
-  width: 1000px;
-  margin: 0px auto;
+#footer-links {
+  width: 940px;
+  margin: 40px auto 20px;
   padding-top: 20px;
+  position:relative;
 }
-.footer-left {
+#footer-left {
   float: left;
-  width: 500px;
-  margin-bottom: 20px;
+  width: 700px;
 }
-.footer-left li {
-  margin: 0 30px 0 0;
-}
-.footer-right {
+#footer-right {
   float: left;
   width: 500px;
   position: relative;
 }
-.footer-right ul {
-  float: right;
+ul.social li a {
+  margin-left: 5px;
+  margin-bottom: 5px;
 }
-.footer-right a {
-  margin: 0 0 0 5px;
-  padding-bottom: 2px;
+ul.social li a.cat {
+  background-position: 0px 0px;
+  height: 21px;
+  width: 20px; 
+  margin-left: 10px;
+  display:block;
+  background-image: url('http://asana_static.s3.amazonaws.com/images/kitty-sprite.png');
+  background-repeat: no-repeat;
+  text-indent: -5000px;
+  text-decoration: none;
 }
-.footer-right a:hover {
-  border-bottom: none;
+ul.social li a.cat:hover {
+  background-position: 0px -21px;
 }
-.facebook-link {
-  background: url("https://s3.amazonaws.com/asanadev/facebook-small.png") 0 0;
+#social-content {
+position:absolute; 
+right: 0px; 
+width:250px;
 }
-.twitter-link {
-  background: url("https://s3.amazonaws.com/asanadev/twitter-small.png") 0 0;
+.footer-heading {
+font-weight:700;
+color:#596573;
 }
-.youtube-link {
-  background: url("https://s3.amazonaws.com/asanadev/youtube-small.png") 0 0;
+ul.footer-section {
+margin-bottom: 15px;
+font-size:14px;
+}
+ul.footer-section li {
+color: #596573;
+}
+ul.footer-section li a {
+width:100px;
+display: block;
+color: #596573;
+margin-right: 30px;
+text-decoration: none;
+padding-top:3px;
+}
+ul.footer-section li a:hover {
+color: #1E8DD6;
+}
+ul.footer-section li div {
+color:#596573;
 }
 .rss-link {
-  background: url("https://s3.amazonaws.com/asanadev/rss-small.png") 0 0;
+  background: url("https://s3.amazonaws.com/asana_static/images/rss-small.png") 0 0;
 }
-.facebook-link,
-.twitter-link,
-.youtube-link,
 .rss-link {
   display: block;
   height: 16px;
@@ -755,69 +791,6 @@ blockquote {
   background-position: 0 0;
   background-repeat: no-repeat;
 }
-.facebook-link:hover,
-.twitter-link:hover,
-.youtube-link:hover,
-.rss-link:hover {
-  background-position: 0 -18px;
-}
-.cat-link {
-  display: block;
-  height: 17px;
-  width: 19px;
-  background: url("https://s3.amazonaws.com/asanadev/cat-small.png") 0 0 no-repeat;
-}
-a.cat-link:hover {
-  background-position: 0 -20px;
-}
-a.facebook-icon {
-  display: block;
-  float: left;
-  margin-right: 10px;
-  width: 32px;
-  height: 32px;
-  background-image: url('/images/social_sprite.png');
-  background-repeat: no-repeat;
-  text-indent: -5000px;
-}
-a.facebook-icon:hover {
-  background-position: -32px 0;
-}
-a.twitter-icon {
-  display: block;
-  float: left;
-  margin-right: 10px;
-  width: 32px;
-  height: 32px;
-  background-image: url('/images/social_sprite.png');
-  background-repeat: no-repeat;
-  background-position: 0 -32px;
-  text-indent: -5000px;
-}
-a.twitter-icon:hover {
-  background-position: -32px -32px;
-}
-#legal {
-  margin-top: 15px;
-}
-#legal,
-#legal a {
-  color:#596573;
-  font-size: 11px;
-  margin-right: 0;
-}
-#legal li {
-  margin: 0 10px 0 0;
-}
-.you-are-here {
-  border-bottom: 5px solid #389dd9;
-  padding-bottom: 2px;
-}
-.dark {
-  margin-top: 10px;
-}
-
-
 /* ==========================================================================================
 
     Helper Styles
@@ -837,7 +810,7 @@ a.twitter-icon:hover {
 .centered{text-align:center;}
 .small{font-size:11px;font-weight:bold;line-height:14px;}
 .static-caption{position:fixed;margin-top:400px;}
-.bold{font-weight:600;}
+.bold{font-weight:700;}
 
 
 /* ==========================================================================================

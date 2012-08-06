@@ -12,7 +12,7 @@
         /// <param name="value">The value of the parameter.</param>
         /// <exception cref="ArgumentException">Thrown if value is empty.</exception>
         /// <exception cref="ArgumentNullException">Thrown if value is null.</exception>
-        internal static void NotNullOrEmpty(string paramName, string value)
+        internal static void NullOrEmpty(string paramName, string value)
         {
             if (string.IsNullOrEmpty(value))
             {

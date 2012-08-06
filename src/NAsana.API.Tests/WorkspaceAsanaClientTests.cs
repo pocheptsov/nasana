@@ -33,13 +33,17 @@
 
         #region Nested type: WorkspaceAsanaClientGetWorkspaceTasks
 
-        public class WorkspaceAsanaClientGetWorkspaceTasks
+        public class WorkspaceAsanaClientGetWorkspaceTasks : AsanaClientTests
         {
+            public WorkspaceAsanaClientGetWorkspaceTasks(bool isIntegration) : base(isIntegration)
+            {
+            }
+
             [Test]
             public void success_non_zero_tasks_short_request()
             {
                 var workspaceAsanaClient =
-                    AsanaClientTestHelper.GetAsanaClient<AsanaClient.WorkspaceAsanaClient>(short_workspace_response_content);
+                    GetAsanaClient<AsanaClient.WorkspaceAsanaClient>(short_workspace_response_content);
 
                 const int randomWorkspaceId = 14619;
 

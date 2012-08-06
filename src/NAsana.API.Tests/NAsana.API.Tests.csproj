@@ -61,7 +61,6 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsanaClientTestHelper.cs" />
     <Compile Include="UserAsanaClientTests.cs" />
     <Compile Include="Mocks\TestRestClient.cs" />
     <Compile Include="SimpleTests\CompareObjects.cs" />

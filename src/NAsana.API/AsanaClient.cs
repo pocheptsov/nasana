@@ -95,7 +95,9 @@
                     errorMessage = "Server error.";
                     break;
             }
-            return errorMessage;
+
+
+            return errorMessage + " " + response.ErrorMessage;
         }
 
         /// <summary>
