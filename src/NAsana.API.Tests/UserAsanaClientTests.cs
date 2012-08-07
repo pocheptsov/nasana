@@ -8,21 +8,16 @@
 
     public class UserAsanaClientTests : AsanaClientTests
     {
-        // ReSharper disable InconsistentNaming
-        private const string short_user_response_content = "{ \"data\": " +
-                                                           "{ \"email\": \"gsanchez@example.com\", \"id\": 5678, \"name\": \"Greg Sanchez\", " +
-                                                           "\"workspaces\": [ " +
-                                                           "{ \"id\": 1337, \"name\": \"My Favorite Workspace\" }" +
-                                                           "] } }";
+        private const string short_current_user_response_content = "{\"data\":" +
+                                                           "{\"id\":730528258877,\"name\":\"Slava Pocheptsov\",\"email\":\"pocheptsov.test@gmail.com\"," +
+                                                           "\"workspaces\":[" +
+                                                           "{\"id\":730528258883,\"name\":\"Tvene Workspace\"}," +
+                                                           "{\"id\":1384990514055,\"name\":\"NAsana\"}," +
+                                                           "{\"id\":498346170860,\"name\":\"Personal Projects\"}]}}";
 
         private const string short_users_response_content = "{ \"data\": [ " +
                                                             "{ \"email\": \"tbizarro@example.com\", \"id\": 1234, \"name\": \"Tim Bizarro\" }, " +
                                                             "{ \"email\": \"gsanchez@example.com\", \"id\": 5678, \"name\": \"Greg Sanchez\" }] }";
-
-        public UserAsanaClientTests(bool isIntegration)
-            : base(isIntegration)
-        {
-        }
 
         [Test]
         public void create_user_asana_client()
@@ -33,39 +28,42 @@
             PAssert.IsTrue(() => userAsanaClient != null);
         }
 
-        [Test]
-        public void success_get_current_user()
+        [TestCase(short_current_user_response_content)]
+        [TestCase(null)]
+        public void success_get_current_user(string responseContent)
         {
             var userAsanaClient =
-                GetAsanaClient<AsanaClient.UserAsanaClient>(short_user_response_content);
+                GetAsanaClient<AsanaClient.UserAsanaClient>(responseContent);
 
             var user = userAsanaClient.GetCurrentUser();
 
             PAssert.IsTrue(() => user != null);
-            PAssert.IsTrue(() => user.Id == 5678);
-            PAssert.IsTrue(() => user.Email == "gsanchez@example.com");
-            PAssert.IsTrue(() => user.Name == "Greg Sanchez");
+            PAssert.IsTrue(() => user.Id == 730528258877);
+            PAssert.IsTrue(() => user.Email.StartsWith("pocheptsov"));
+            PAssert.IsTrue(() => user.Email.EndsWith("@gmail.com"));
+            PAssert.IsTrue(() => user.Name == "Slava Pocheptsov");
         }
 
         [Test]
         public void success_get_current_user_predefined_me()
         {
             var userAsanaClient =
-                GetAsanaClient<AsanaClient.UserAsanaClient>(short_user_response_content);
+                GetAsanaClient<AsanaClient.UserAsanaClient>(short_current_user_response_content);
 
             var user = userAsanaClient.GetUser(UserPredefinedId.Me);
 
             PAssert.IsTrue(() => user != null);
-            PAssert.IsTrue(() => user.Id == 5678);
-            PAssert.IsTrue(() => user.Email == "gsanchez@example.com");
-            PAssert.IsTrue(() => user.Name == "Greg Sanchez");
+            PAssert.IsTrue(() => user.Id == 730528258877);
+            PAssert.IsTrue(() => user.Email.StartsWith("pocheptsov"));
+            PAssert.IsTrue(() => user.Email.EndsWith("@gmail.com"));
+            PAssert.IsTrue(() => user.Name == "Slava Pocheptsov");
         }
 
         [Test]
         public void success_get_user()
         {
             var userAsanaClient =
-                GetAsanaClient<AsanaClient.UserAsanaClient>(short_user_response_content);
+                GetAsanaClient<AsanaClient.UserAsanaClient>(short_current_user_response_content);
 
             var user = userAsanaClient.GetUser(5678);
 
@@ -89,6 +87,4 @@
             PAssert.IsTrue(() => users[1].Name == "Greg Sanchez");
         }
     }
-
-// ReSharper restore InconsistentNaming
 }

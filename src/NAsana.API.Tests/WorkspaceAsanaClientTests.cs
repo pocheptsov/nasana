@@ -35,7 +35,7 @@
 
         public class WorkspaceAsanaClientGetWorkspaceTasks : AsanaClientTests
         {
-            public WorkspaceAsanaClientGetWorkspaceTasks(bool isIntegration) : base(isIntegration)
+            public WorkspaceAsanaClientGetWorkspaceTasks(string isIntegration) : base()
             {
             }
 
