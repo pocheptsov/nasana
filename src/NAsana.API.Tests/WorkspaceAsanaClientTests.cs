@@ -1,60 +1,44 @@
 ﻿namespace NAsana.API.Tests
 {
+    using System.Linq;
     using Mocks;
     using NUnit.Framework;
+    using PowerAssert;
     using v1;
     using v1.Model.Utils;
 
-    [TestFixture]
-    public class WorkspaceAsanaClientTests
+    public class WorkspaceAsanaClientTests : AsanaClientTests
     {
-// ReSharper disable InconsistentNaming
-        private const string short_workspace_response_content = "{\"data\":[{\"id\":1346674263886,\"name\":\"test task\"}," +
-                                                                "{\"id\":1346674263887,\"name\":\"some not useful task\"}," +
-                                                                "{\"id\":1346674263888,\"name\":\"moreover\"}]}";
-// ReSharper restore InconsistentNaming
+        private const string workspace_assigned_tasks_response_content = "{\"data\":[" +
+                                                                "{\"id\":1384990514078,\"name\":\"Simple assigned task\"}," +
+                                                                "{\"id\":1384990514076,\"name\":\"First assigned task\"}]}";
 
-        #region Nested type: WorkspaceAsanaClientCtr
-
-        [TestFixture]
-        public class WorkspaceAsanaClientCtr
+        [Test]
+        public void create_worspace_asana_client()
         {
-            [Test]
-            public void create_worspace_asana_client()
-            {
-                var restClient = new TestRestClient("");
-                var workspaceAsanaClient = new AsanaClient.WorkspaceAsanaClient(new AsanaClient(restClient));
+            var restClient = new TestRestClient("");
+            var workspaceAsanaClient = new AsanaClient.WorkspaceAsanaClient(new AsanaClient(restClient));
 
-                Assert.That(workspaceAsanaClient, Is.Not.Null);
-            }
+            PAssert.IsTrue(() => workspaceAsanaClient != null);
         }
 
-        #endregion
-
-        #region Nested type: WorkspaceAsanaClientGetWorkspaceTasks
-
-        public class WorkspaceAsanaClientGetWorkspaceTasks : AsanaClientTests
+        [TestCase(workspace_assigned_tasks_response_content)]
+        [TestCase(null)]
+        public void success_non_zero_tasks_short_request(string responseContent)
         {
-            public WorkspaceAsanaClientGetWorkspaceTasks(string isIntegration) : base()
-            {
-            }
+            var workspaceAsanaClient =
+                GetAsanaClient<AsanaClient.WorkspaceAsanaClient>(responseContent);
 
-            [Test]
-            public void success_non_zero_tasks_short_request()
-            {
-                var workspaceAsanaClient =
-                    GetAsanaClient<AsanaClient.WorkspaceAsanaClient>(short_workspace_response_content);
+            const long testWorkspaceId = 1384990514055;
 
-                const int randomWorkspaceId = 14619;
+            var tasks = workspaceAsanaClient.GetWorkspaceTasks(testWorkspaceId, UserPredefinedId.Me);
 
-                var tasks = workspaceAsanaClient.GetWorkspaceTasks(randomWorkspaceId, UserPredefinedId.Me);
+            PAssert.IsTrue(() => tasks != null);
+            PAssert.IsTrue(() => tasks.Count > 0);
 
-                Assert.That(tasks, Is.Not.Null);
-                Assert.That(tasks.Count, Is.GreaterThan(0));
-                Assert.That(tasks[0].Name, Is.EqualTo("test task"));
-            }
+            var firstAssignedTaskInWorkspace = tasks.FirstOrDefault(_ => _.Name == "First assigned task");
+
+            PAssert.IsTrue(() => firstAssignedTaskInWorkspace != null);
         }
-
-        #endregion
     }
 }

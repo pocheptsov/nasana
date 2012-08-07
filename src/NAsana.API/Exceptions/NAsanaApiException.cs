@@ -1,15 +1,12 @@
-﻿using System;
-using System.Globalization;
-using System.Runtime.Serialization;
-
-namespace NAsana.API.v1.Exceptions
+﻿namespace NAsana.API.v1.Exceptions
 {
+    using System;
+    using System.Runtime.Serialization;
+
     /// <summary>
     /// Represent errors that occur while calling a Asana API.
     /// </summary>
-#if !(SILVERLIGHT || NETFX_CORE)
     [Serializable]
-#endif
     public class NAsanaApiException : Exception
     {
         /// <summary>
@@ -28,31 +25,6 @@ namespace NAsana.API.v1.Exceptions
         {
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NAsanaApiException"/> class.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        /// <param name="errorType">Type of the error.</param>
-        public NAsanaApiException(string message, string errorType)
-            : this(String.Format(CultureInfo.InvariantCulture, "({0}) {1}", errorType ?? "Unknown", message))
-        {
-            ErrorType = errorType;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NAsanaApiException"/> class.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        /// <param name="errorType">Type of the error.</param>
-        /// <param name="errorCode">Code of the error.</param>
-        public NAsanaApiException(string message, string errorType, int errorCode)
-            : this(
-                String.Format(CultureInfo.InvariantCulture, "({0} - #{1}) {2}", errorType ?? "Unknown", errorCode,
-                              message))
-        {
-            ErrorType = errorType;
-            ErrorCode = errorCode;
-        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NAsanaApiException"/> class.
@@ -64,7 +36,6 @@ namespace NAsana.API.v1.Exceptions
         {
         }
 
-#if !(SILVERLIGHT || NETFX_CORE)
         /// <summary>
         /// Initializes a new instance of the <see cref="NAsanaApiException"/> class.
         /// </summary>
@@ -76,18 +47,5 @@ namespace NAsana.API.v1.Exceptions
             : base(info, context)
         {
         }
-#endif
-
-        /// <summary>
-        /// Gets or sets the type of the error.
-        /// </summary>
-        /// <value>The type of the error.</value>
-        public string ErrorType { get; set; }
-
-        /// <summary>
-        /// Gets or sets the code of the error.
-        /// </summary>
-        /// <value>The code of the error.</value>
-        public int ErrorCode { get; set; }
     }
 }

@@ -8,6 +8,8 @@
     using Exceptions;
     using Model;
     using RestSharp;
+    using RestSharp.Deserializers;
+    using RestSharp.Extensions;
     using Utils;
 
     public partial class AsanaClient
@@ -61,20 +63,58 @@
             Guard.NotNull("request", request);
 
             // execute the request
-            var response = Client.Execute<TModel>(request);
+            var responseRaw = Client.Execute(request);
 
-            if (response.ResponseStatus == ResponseStatus.Error)
+            if (responseRaw.ResponseStatus == ResponseStatus.Error)
             {
-                throw new NAsanaApiException(GetErrorMessage(response), response.ErrorException);
+                TryThrowErrorException(request, responseRaw);
+                throw new NAsanaApiException(GetErrorMessage(responseRaw), responseRaw.ErrorException);
             }
+
+            IRestResponse<TModel> typedResponse;
+            bool isDeserialized = TryDeserialize(request, responseRaw, out typedResponse);
+
+            //error convert to typed class
+            if (!isDeserialized && typedResponse.ResponseStatus == ResponseStatus.Error)
+            {
+                if (typedResponse.ErrorException is InvalidCastException)
+                {
+                    TryThrowErrorException(request, typedResponse);
+                }
+
+                throw new NAsanaApiException(GetErrorMessage(typedResponse), typedResponse.ErrorException);
+            }
+
             // make sure the exected status code is returned
-            VerifyResponse(response, expectedStatusCode);
+            VerifyResponse(typedResponse, expectedStatusCode);
 
             // return the response
-            return response.Data;
+            return typedResponse.Data;
         }
 
-        private static string GetErrorMessage<TModel>(IRestResponse<TModel> response) where TModel : new()
+        private void TryThrowErrorException(IRestRequest request, IRestResponse responseRaw)
+        {
+            var rootElement = request.RootElement;
+            request.RootElement = "";
+            //try to deserialize into error response
+            IRestResponse<ErrorsModel> errorResponse;
+            bool isDeserialized = TryDeserialize(request, responseRaw, out errorResponse);
+            request.RootElement = rootElement;
+
+            if (isDeserialized)
+            {
+                var errorsModel = errorResponse.Data;
+                if (errorsModel.Errors == null)
+                {
+                    return;
+                }
+                throw new NAsanaApiException(GetErrorMessage(responseRaw) + " " +
+                                             string.Join(". ", errorsModel.Errors.Select(_ => _.Message)),
+                                             responseRaw.ErrorException);
+            }
+        }
+
+        private static string GetErrorMessage(IRestResponse response)
         {
             string errorMessage;
             switch (response.StatusCode)
@@ -95,7 +135,6 @@
                     errorMessage = "Server error.";
                     break;
             }
-
 
             return errorMessage + " " + response.ErrorMessage;
         }
@@ -119,6 +158,29 @@
             // check if the actuel status code is not the expected status code
             if (response.StatusCode != expectedStatusCode)
                 throw new LinkedINHttpResponseException(expectedStatusCode, response.StatusCode, response.ErrorMessage, response.ErrorException);*/
+        }
+
+        private bool TryDeserialize<T>(IRestRequest request, IRestResponse raw, out IRestResponse<T> restResponse)
+        {
+            request.OnBeforeDeserialization(raw);
+            IDeserializer handler = new JsonDeserializer();
+            handler.RootElement = request.RootElement;
+            handler.DateFormat = request.DateFormat;
+            handler.Namespace = request.XmlNamespace;
+            restResponse = new RestResponse<T>();
+            try
+            {
+                restResponse = raw.toAsyncResponse<T>();
+                restResponse.Data = handler.Deserialize<T>(raw);
+            }
+            catch (Exception ex)
+            {
+                restResponse.ResponseStatus = ResponseStatus.Error;
+                restResponse.ErrorMessage = ex.Message;
+                restResponse.ErrorException = ex;
+                return false;
+            }
+            return true;
         }
 
         private Task CreateTaskImpl(Task task, long workspaceId, string[] whitelist)

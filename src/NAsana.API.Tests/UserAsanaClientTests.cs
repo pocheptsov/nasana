@@ -95,6 +95,7 @@
 
             var user = users.FirstOrDefault(_ => _.Id == 730528258877);
 
+            PAssert.IsTrue(() => user != null);
             PAssert.IsTrue(() => user.Email == null);
             PAssert.IsTrue(() => user.Name == "Slava Pocheptsov");
         }

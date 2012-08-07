@@ -28,14 +28,6 @@
                 return ExecuteRequest<User>(request);
             }
 
-            public User GetUser(long userId)
-            {
-                Guard.GreaterThan("userId", userId, 0);
-
-                var request = AsanaRequest.Get(string.Format("users/{0}", userId));
-                return ExecuteRequest<User>(request);
-            }
-            
             public User GetUser(UserId userId)
             {
                 Guard.IsTrue("userId", () => userId.ToString().Length>0);

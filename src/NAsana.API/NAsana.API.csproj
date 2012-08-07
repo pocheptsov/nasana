@@ -64,6 +64,7 @@
     <Compile Include="AsanaOptionsApplier.cs" />
     <Compile Include="Exceptions\NAsanaApiException.cs" />
     <Compile Include="Model\AssigneeStatus.cs" />
+    <Compile Include="Model\Errors.cs" />
     <Compile Include="Model\Tag.cs" />
     <Compile Include="Model\Utils\UserId.cs" />
     <Compile Include="Model\Utils\EnumBase.cs" />
